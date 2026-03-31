@@ -1,8 +1,9 @@
 package cn.gzy.infrastructure.persistent.po;
 
+import cn.gzy.types.common.Constants;
 import lombok.Data;
 
-import java.util.Date;
+import java.util.*;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -30,5 +31,6 @@ public class StrategyRule {
     private Date createTime;
     /** 更新时间 */
     private Date updateTime;
+
 
 }
