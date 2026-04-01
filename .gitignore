@@ -1,1 +1,9 @@
 /.idea/
+/big-market-app/target/
+/big-market-types/target/
+/big-market-trigger/target/
+/big-market-infrastructure/target/
+/big-market-domain/target/
+
+
+/big-market-app/data/log/
