@@ -4,7 +4,7 @@ import cn.gzy.domain.strategy.model.entity.RaffleAwardEntity;
 import cn.gzy.domain.strategy.model.entity.RaffleFactorEntity;
 import cn.gzy.domain.strategy.service.IRaffleStrategy;
 import cn.gzy.domain.strategy.service.armory.IStrategyArmory;
-import cn.gzy.domain.strategy.service.rule.impl.RuleWeightLogicFilter;
+//import cn.gzy.domain.strategy.service.rule.filter.factory.impl.RuleWeightLogicFilter;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
@@ -29,15 +29,15 @@ public class RaffleStrategyTest {
     @Resource
     private IRaffleStrategy raffleStrategy;
 
-    @Resource
-    private RuleWeightLogicFilter ruleWeightLogicFilter;
+//    @Resource
+//    private RuleWeightLogicFilter ruleWeightLogicFilter;
     @Resource
     private IStrategyArmory strategyArmory;
 
-    @Before
-    public void setUp() {
-        ReflectionTestUtils.setField(ruleWeightLogicFilter, "userScore", 40500L);
-    }
+//    @Before
+//    public void setUp() {
+//        ReflectionTestUtils.setField(ruleWeightLogicFilter, "userScore", 40500L);
+//    }
 
     @Before
     public void test_strategyArmory() {

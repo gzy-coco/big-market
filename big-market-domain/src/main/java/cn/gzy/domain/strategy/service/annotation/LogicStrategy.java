@@ -1,6 +1,6 @@
 package cn.gzy.domain.strategy.service.annotation;
 
-import cn.gzy.domain.strategy.service.rule.factory.DefaultLogicFactory;
+import cn.gzy.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

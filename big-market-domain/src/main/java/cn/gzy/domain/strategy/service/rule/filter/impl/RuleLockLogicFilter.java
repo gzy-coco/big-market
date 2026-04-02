@@ -1,4 +1,4 @@
-package cn.gzy.domain.strategy.service.rule.impl;
+package cn.gzy.domain.strategy.service.rule.filter.impl;
 
 import cn.gzy.domain.strategy.model.entity.RuleActionEntity;
 import cn.gzy.domain.strategy.model.entity.RuleMatterEntity;
@@ -6,7 +6,7 @@ import cn.gzy.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
 import cn.gzy.domain.strategy.repository.IStrategyRepository;
 import cn.gzy.domain.strategy.service.annotation.LogicStrategy;
 import cn.gzy.domain.strategy.service.rule.ILogicFilter;
-import cn.gzy.domain.strategy.service.rule.factory.DefaultLogicFactory;
+import cn.gzy.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package cn.gzy.domain.strategy.service.rule.factory;
+package cn.gzy.domain.strategy.service.rule.filter.factory;
 
 import cn.gzy.domain.strategy.model.entity.RuleActionEntity;
 import cn.gzy.domain.strategy.service.annotation.LogicStrategy;
