@@ -47,8 +47,13 @@ public class RuleActionEntity<T extends RuleActionEntity.RaffleEntity> {
     }
 
     // 抽奖之中
+    @EqualsAndHashCode(callSuper = true)
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
     static public class RaffleCenterEntity extends RaffleEntity {
-
+        private String rule_value;
     }
 
     // 抽奖之后
