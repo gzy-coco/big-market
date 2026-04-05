@@ -2,7 +2,7 @@ package cn.gzy.domain.strategy.service.rule.filter.factory;
 
 import cn.gzy.domain.strategy.model.entity.RuleActionEntity;
 import cn.gzy.domain.strategy.service.annotation.LogicStrategy;
-import cn.gzy.domain.strategy.service.rule.ILogicFilter;
+import cn.gzy.domain.strategy.service.rule.filter.ILogicFilter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.core.annotation.AnnotationUtils;

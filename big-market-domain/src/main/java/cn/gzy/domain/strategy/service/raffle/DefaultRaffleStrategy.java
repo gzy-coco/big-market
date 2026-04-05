@@ -7,7 +7,7 @@ import cn.gzy.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
 import cn.gzy.domain.strategy.repository.IStrategyRepository;
 import cn.gzy.domain.strategy.service.AbstractRaffleStrategy;
 import cn.gzy.domain.strategy.service.armory.IStrategyDispatch;
-import cn.gzy.domain.strategy.service.rule.ILogicFilter;
+import cn.gzy.domain.strategy.service.rule.filter.ILogicFilter;
 import cn.gzy.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
 import cn.gzy.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
 import lombok.extern.slf4j.Slf4j;
