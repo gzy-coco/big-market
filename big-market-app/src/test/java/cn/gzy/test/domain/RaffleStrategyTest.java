@@ -41,7 +41,7 @@ public class RaffleStrategyTest {
 
     @Before
     public void test_strategyArmory() {
-        boolean success = strategyArmory.assembleLotteryStrategy(100003L);
+        boolean success = strategyArmory.assembleLotteryStrategy(100006L);
         log.info("测试结果：{}", success);
     }
 
@@ -49,7 +49,7 @@ public class RaffleStrategyTest {
     public void test_performRaffle() {
         RaffleFactorEntity raffleFactorEntity = RaffleFactorEntity.builder()
                 .userId("10001")
-                .strategyId(100003L)
+                .strategyId(100006L)
                 .build();
 
         RaffleAwardEntity raffleAwardEntity = raffleStrategy.performRaffle(raffleFactorEntity);

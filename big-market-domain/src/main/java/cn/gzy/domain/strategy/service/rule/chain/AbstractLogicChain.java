@@ -14,5 +14,5 @@ public abstract class AbstractLogicChain implements ILogicChain{
         return next;
     }
 
-    public abstract String ruleModel();
+    protected abstract String ruleModel();
 }

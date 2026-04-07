@@ -3,6 +3,7 @@ package cn.gzy.domain.strategy.service.rule.chain.impl;
 import cn.gzy.domain.strategy.repository.IStrategyRepository;
 import cn.gzy.domain.strategy.service.armory.IStrategyDispatch;
 import cn.gzy.domain.strategy.service.rule.chain.AbstractLogicChain;
+import cn.gzy.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
 import cn.gzy.types.common.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -36,7 +37,7 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
      * 2. 解析数据格式；判断哪个范围符合用户的特定抽奖范围
      */
     @Override
-    public Integer logic(Long strategyId, String userId) {
+    public DefaultChainFactory.StrategyAwardVO logic(Long strategyId, String userId) {
         log.info("抽奖责任链-权重开始 userId: {} strategyId: {} ruleModel: {}", userId, strategyId, ruleModel());
 
         //ruleValue  4000:102,103,104,105 5000:102,103,104,105,106,107 6000:102,103,104,105,106,107,108,109
@@ -59,7 +60,10 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
         if (null != nextValue) {
             Integer awardId = strategyDispatch.getRandomAwardId(strategyId,analyticalValueGroup.get(nextValue));
             log.info("抽奖责任链-权重接管 userId: {} strategyId: {} ruleModel: {} awardId: {}", userId, strategyId, ruleModel(), awardId);
-            return awardId;
+            return DefaultChainFactory.StrategyAwardVO.builder()
+                    .awardId(awardId)
+                    .logicModel(ruleModel())
+                    .build();
         }
         // 5. 过滤其他责任链
         log.info("抽奖责任链-权重放行 userId: {} strategyId: {} ruleModel: {}", userId, strategyId, ruleModel());
@@ -68,8 +72,8 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
     }
 
     @Override
-    public String ruleModel() {
-        return "rule_weight";
+    protected String ruleModel() {
+        return DefaultChainFactory.LogicModel.RULE_WEIGHT.getCode();
     }
 
     private Map<Long, String> getAnalyticalValue(String ruleValue) {
