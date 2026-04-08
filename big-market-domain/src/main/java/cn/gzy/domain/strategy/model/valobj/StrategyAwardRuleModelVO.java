@@ -1,15 +1,11 @@
 package cn.gzy.domain.strategy.model.valobj;
 
-import cn.gzy.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
-import cn.gzy.types.common.Constants;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
