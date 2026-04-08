@@ -1,9 +1,9 @@
 package cn.gzy.domain.strategy.service.rule.tree.impl;
 
 import cn.gzy.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
-import cn.gzy.domain.strategy.service.rule.filter.ILogicFilter;
 import cn.gzy.domain.strategy.service.rule.tree.ILogicTreeNode;
 import cn.gzy.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,11 +12,33 @@ import org.springframework.stereotype.Component;
  * @create 2024-01-27 11:22
  */
 @Component("rule_lock")
+@Slf4j
 public class RuleLockLogicTreeNode implements ILogicTreeNode {
+
+    // 用户抽奖次数，后续完成这部分流程开发的时候，从数据库/Redis中读取
+    private Long userRaffleCount = 10L;
+
     @Override
-    public DefaultTreeFactory.TreeActionEntity logic(Long strategyId, String userId, Integer awardId) {
+    public DefaultTreeFactory.TreeActionEntity logic(Long strategyId, String userId, Integer awardId,String ruleValue) {
+        log.info("规则过滤-次数锁 userId:{} strategyId:{} awardId:{}", userId, strategyId, awardId);
+
+        long raffleCount = 0L;
+        try {
+            raffleCount = Long.parseLong(ruleValue);
+        } catch (Exception e) {
+            throw new RuntimeException("规则过滤-次数锁异常 ruleValue: " + ruleValue + " 配置不正确");
+        }
+
+        // 用户抽奖次数大于规则限定值，规则放行
+        if (userRaffleCount >= raffleCount) {
+            return DefaultTreeFactory.TreeActionEntity.builder()
+                    .ruleLogicCheckType(RuleLogicCheckTypeVO.ALLOW)
+                    .build();
+        }
+
+        // 用户抽奖次数小于规则限定值，规则拦截
         return DefaultTreeFactory.TreeActionEntity.builder()
-                .ruleLogicCheckType(RuleLogicCheckTypeVO.ALLOW)
+                .ruleLogicCheckType(RuleLogicCheckTypeVO.TAKE_OVER)
                 .build();
     }
 }

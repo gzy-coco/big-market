@@ -2,16 +2,9 @@ package cn.gzy.domain.strategy.service;
 
 import cn.gzy.domain.strategy.model.entity.RaffleAwardEntity;
 import cn.gzy.domain.strategy.model.entity.RaffleFactorEntity;
-import cn.gzy.domain.strategy.model.entity.RuleActionEntity;
-import cn.gzy.domain.strategy.model.entity.StrategyEntity;
-import cn.gzy.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
-import cn.gzy.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
 import cn.gzy.domain.strategy.repository.IStrategyRepository;
-import cn.gzy.domain.strategy.service.IRaffleStrategy;
 import cn.gzy.domain.strategy.service.armory.IStrategyDispatch;
-import cn.gzy.domain.strategy.service.rule.chain.ILogicChain;
 import cn.gzy.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
-import cn.gzy.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
 import cn.gzy.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
 import cn.gzy.types.enums.ResponseCode;
 import cn.gzy.types.exception.AppException;
@@ -24,7 +17,7 @@ import org.apache.commons.lang3.StringUtils;
  * @create 2024-01-06 09:26
  */
 @Slf4j
-public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
+public abstract class AbstractRaffleStrategy implements IRaffleStrategy,IRaffleStock {
 
 
     // 策略仓储服务 -> domain层像一个大厨，仓储层提供米面粮油

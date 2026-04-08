@@ -1,25 +1,21 @@
 package cn.gzy.domain.strategy.service.raffle;
 
-import cn.gzy.domain.strategy.model.entity.RaffleFactorEntity;
-import cn.gzy.domain.strategy.model.entity.RuleActionEntity;
-import cn.gzy.domain.strategy.model.entity.RuleMatterEntity;
-import cn.gzy.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
 import cn.gzy.domain.strategy.model.valobj.RuleTreeVO;
 import cn.gzy.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
+import cn.gzy.domain.strategy.model.valobj.StrategyAwardStockKeyVO;
 import cn.gzy.domain.strategy.repository.IStrategyRepository;
 import cn.gzy.domain.strategy.service.AbstractRaffleStrategy;
 import cn.gzy.domain.strategy.service.armory.IStrategyDispatch;
 import cn.gzy.domain.strategy.service.rule.chain.ILogicChain;
-import cn.gzy.domain.strategy.service.rule.filter.ILogicFilter;
+
 import cn.gzy.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
-import cn.gzy.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
+
 import cn.gzy.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
 import cn.gzy.domain.strategy.service.rule.tree.factory.engine.impl.DecisionTreeEngine;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.Map;
+
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -34,7 +30,6 @@ public class DefaultRaffleStrategy extends AbstractRaffleStrategy {
     public DefaultRaffleStrategy(IStrategyRepository repository, IStrategyDispatch strategyDispatch, DefaultChainFactory defaultChainFactory, DefaultTreeFactory defaultTreeFactory) {
         super(repository, strategyDispatch, defaultChainFactory, defaultTreeFactory);
     }
-
 
     @Override
     public DefaultChainFactory.StrategyAwardVO raffleLogicChain(String userId, Long strategyId) {
@@ -56,6 +51,16 @@ public class DefaultRaffleStrategy extends AbstractRaffleStrategy {
         }
         DecisionTreeEngine decisionTreeEngine = defaultTreeFactory.openLogicTree(ruleTreeVO);
         return decisionTreeEngine.process(userId,strategyId,awardId);
+    }
+
+    @Override
+    public StrategyAwardStockKeyVO takeQueueValue() throws InterruptedException {
+        return repository.takeQueueValue();
+    }
+
+    @Override
+    public void updateStrategyAwardStock(Long strategyId, Integer awardId) {
+        repository.updateStrategyAwardStock(strategyId, awardId);
     }
 
 

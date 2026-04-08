@@ -10,5 +10,5 @@ import cn.gzy.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
  */
 public interface ILogicTreeNode {
 
-    DefaultTreeFactory.TreeActionEntity  logic(Long strategyId, String userId, Integer awardId);
+    DefaultTreeFactory.TreeActionEntity  logic(Long strategyId, String userId, Integer awardId,String ruleValue);
 }
