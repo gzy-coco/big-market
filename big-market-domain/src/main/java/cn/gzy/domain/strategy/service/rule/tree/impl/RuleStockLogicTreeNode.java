@@ -41,7 +41,7 @@ public class RuleStockLogicTreeNode implements ILogicTreeNode {
                     .awardId(awardId)
                     .build());
             return DefaultTreeFactory.TreeActionEntity.builder()
-                    .ruleLogicCheckType(RuleLogicCheckTypeVO.ALLOW)
+                    .ruleLogicCheckType(RuleLogicCheckTypeVO.TAKE_OVER)
                     .strategyAwardVO(DefaultTreeFactory.StrategyAwardVO.builder()
                             .awardId(awardId)
                             .awardRuleValue(ruleValue)
@@ -54,7 +54,7 @@ public class RuleStockLogicTreeNode implements ILogicTreeNode {
         log.warn("规则过滤-库存扣减-告警，库存不足。userId:{} strategyId:{} awardId:{}", userId, strategyId, awardId);
         // 写入延迟队列，延迟消费更新数据库记录。【在trigger的job；UpdateAwardStockJob 下消费队列，更新数据库记录】
         return DefaultTreeFactory.TreeActionEntity.builder()
-                .ruleLogicCheckType(RuleLogicCheckTypeVO.TAKE_OVER)
+                .ruleLogicCheckType(RuleLogicCheckTypeVO.ALLOW)
                 .build();
 
 
