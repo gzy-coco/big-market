@@ -8,7 +8,7 @@ import cn.gzy.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
  * @description 抽奖策略规则责任链接口
  * @create 2024-01-20 09:40
  */
-public interface ILogicChain extends ILogicChaimArmory{
+public interface ILogicChain extends ILogicChaimArmory,Cloneable{
 
     /**
      * 责任链接口
