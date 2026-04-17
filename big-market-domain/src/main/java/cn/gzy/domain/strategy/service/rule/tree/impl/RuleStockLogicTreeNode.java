@@ -35,7 +35,7 @@ public class RuleStockLogicTreeNode implements ILogicTreeNode {
         Boolean status = strategyDispatch.subtractionAwardStock(strategyId, awardId);
         if(status){
             log.info("规则过滤-库存扣减-成功 userId:{} strategyId:{} awardId:{}", userId, strategyId, awardId);
-
+            // 写入延迟队列，延迟消费更新数据库记录。【在trigger的job；UpdateAwardStockJob 下消费队列，更新数据库记录】
             strategyRepository.awardStockConsumeSendQueue(StrategyAwardStockKeyVO.builder()
                     .strategyId(strategyId)
                     .awardId(awardId)
@@ -52,7 +52,6 @@ public class RuleStockLogicTreeNode implements ILogicTreeNode {
         }
         // 如果库存不足，则拦截
         log.warn("规则过滤-库存扣减-告警，库存不足。userId:{} strategyId:{} awardId:{}", userId, strategyId, awardId);
-        // 写入延迟队列，延迟消费更新数据库记录。【在trigger的job；UpdateAwardStockJob 下消费队列，更新数据库记录】
         return DefaultTreeFactory.TreeActionEntity.builder()
                 .ruleLogicCheckType(RuleLogicCheckTypeVO.ALLOW)
                 .build();

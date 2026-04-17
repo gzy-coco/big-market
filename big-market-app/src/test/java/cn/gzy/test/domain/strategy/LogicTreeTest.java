@@ -1,4 +1,4 @@
-package cn.gzy.test.domain;
+package cn.gzy.test.domain.strategy;
 
 import cn.gzy.domain.strategy.model.valobj.*;
 import cn.gzy.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;

@@ -1,4 +1,4 @@
-package cn.gzy.test.domain;
+package cn.gzy.test.domain.strategy;
 
 import cn.gzy.domain.strategy.service.armory.IStrategyArmory;
 import cn.gzy.domain.strategy.service.armory.IStrategyDispatch;
