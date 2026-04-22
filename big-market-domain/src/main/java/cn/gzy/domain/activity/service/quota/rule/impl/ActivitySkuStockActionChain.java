@@ -1,4 +1,4 @@
-package cn.gzy.domain.activity.service.rule.impl;
+package cn.gzy.domain.activity.service.quota.rule.impl;
 
 import cn.gzy.domain.activity.model.entity.ActivityCountEntity;
 import cn.gzy.domain.activity.model.entity.ActivityEntity;
@@ -6,7 +6,7 @@ import cn.gzy.domain.activity.model.entity.ActivitySkuEntity;
 import cn.gzy.domain.activity.model.valobj.ActivitySkuStockKeyVO;
 import cn.gzy.domain.activity.repository.IActivityRepository;
 import cn.gzy.domain.activity.service.armory.IActivityDispatch;
-import cn.gzy.domain.activity.service.rule.AbstractActionChain;
+import cn.gzy.domain.activity.service.quota.rule.AbstractActionChain;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import cn.gzy.types.enums.ResponseCode;

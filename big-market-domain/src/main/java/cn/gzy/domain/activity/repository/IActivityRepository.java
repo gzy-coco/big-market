@@ -1,9 +1,8 @@
 package cn.gzy.domain.activity.repository;
 
-import cn.gzy.domain.activity.model.aggregate.CreateOrderAggregate;
-import cn.gzy.domain.activity.model.entity.ActivityCountEntity;
-import cn.gzy.domain.activity.model.entity.ActivityEntity;
-import cn.gzy.domain.activity.model.entity.ActivitySkuEntity;
+import cn.gzy.domain.activity.model.aggregate.CreatePartakeOrderAggregate;
+import cn.gzy.domain.activity.model.aggregate.CreateQuotaOrderAggregate;
+import cn.gzy.domain.activity.model.entity.*;
 import cn.gzy.domain.activity.model.valobj.ActivitySkuStockKeyVO;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +22,7 @@ public interface IActivityRepository {
 
     ActivityCountEntity queryRaffleActivityCountByActivityCountId(Long activityCountId);
 
-    void doSaveOrder(CreateOrderAggregate createOrderAggregate);
+    void doSaveOrder(CreateQuotaOrderAggregate createOrderAggregate);
 
     void cacheActivitySkuStockCount(String cacheKey,Integer stockCount);
 
@@ -38,5 +37,12 @@ public interface IActivityRepository {
     void updateActivitySkuStock(Long sku);
 
     void clearActivitySkuStock(Long sku);
+
+    ActivityAccountEntity queryActivityAccountByUserId(String userId, Long activityId);
+    ActivityAccountMonthEntity queryActivityAccountMonthByUserId(String userId, Long activityId, String month);
+    ActivityAccountDayEntity queryActivityAccountDayByUserId(String userId, Long activityId, String day);
+    void saveCreatePartakeOrderAggregate(CreatePartakeOrderAggregate createPartakeOrderAggregate);
+
+    UserRaffleOrderEntity queryNoUserRaffleOrder(PartakeRaffleActivityEntity partakeRaffleActivityEntity);
 
 }

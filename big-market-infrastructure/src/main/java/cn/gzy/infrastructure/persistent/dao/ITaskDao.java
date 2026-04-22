@@ -8,5 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @create 2024-04-03 15:57
  */
 @Mapper
-public class ITaskDao {
+public interface ITaskDao {
 }

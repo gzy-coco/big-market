@@ -1,5 +1,10 @@
 package cn.gzy.infrastructure.persistent.dao;
 
+import cn.bugstack.middleware.db.router.annotation.DBRouter;
+import cn.bugstack.middleware.db.router.annotation.DBRouterStrategy;
+import cn.gzy.domain.activity.model.entity.PartakeRaffleActivityEntity;
+import cn.gzy.domain.activity.model.entity.UserRaffleOrderEntity;
+import cn.gzy.infrastructure.persistent.po.UserRaffleOrder;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -9,5 +14,11 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 @Mapper
-public class IUserRaffleOrderDao {
+@DBRouterStrategy(splitTable = true)
+public interface IUserRaffleOrderDao {
+
+    void insert(UserRaffleOrder userRaffleOrder);
+
+    @DBRouter
+    UserRaffleOrder queryNoUsedRaffleOrder(UserRaffleOrder userRaffleOrderReq);
 }

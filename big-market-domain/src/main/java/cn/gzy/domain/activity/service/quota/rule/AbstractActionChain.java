@@ -1,4 +1,4 @@
-package cn.gzy.domain.activity.service.rule;
+package cn.gzy.domain.activity.service.quota.rule;
 
 public abstract class AbstractActionChain implements IActionChain{
     private IActionChain next;

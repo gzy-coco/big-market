@@ -1,23 +1,23 @@
-package cn.gzy.domain.activity.service;
+package cn.gzy.domain.activity.service.quota;
 
 import cn.gzy.domain.activity.model.entity.ActivityCountEntity;
 import cn.gzy.domain.activity.model.entity.ActivityEntity;
 import cn.gzy.domain.activity.model.entity.ActivitySkuEntity;
 import cn.gzy.domain.activity.repository.IActivityRepository;
-import cn.gzy.domain.activity.service.rule.factory.DefaultActivityChainFactory;
+import cn.gzy.domain.activity.service.quota.rule.factory.DefaultActivityChainFactory;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
  * @description 抽奖活动的支撑类
  * @create 2024-03-23 09:27
  */
-public class RaffleActivitySupport {
+public class RaffleActivityAccountQuotaSupport {
 
     protected DefaultActivityChainFactory defaultActivityChainFactory;
 
     protected IActivityRepository activityRepository;
 
-    public RaffleActivitySupport(IActivityRepository activityRepository, DefaultActivityChainFactory defaultActivityChainFactory) {
+    public RaffleActivityAccountQuotaSupport(IActivityRepository activityRepository, DefaultActivityChainFactory defaultActivityChainFactory) {
         this.activityRepository = activityRepository;
         this.defaultActivityChainFactory = defaultActivityChainFactory;
     }
