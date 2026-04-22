@@ -1,6 +1,10 @@
 package cn.gzy.infrastructure.persistent.dao;
 
+import cn.bugstack.middleware.db.router.annotation.DBRouter;
+import cn.gzy.infrastructure.persistent.po.Task;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -9,4 +13,14 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ITaskDao {
+
+    List<Task> queryNoSendMessageTaskList();
+
+    void insert(Task task);
+
+    @DBRouter
+    void updateTaskSendMessageCompleted(Task task);
+
+    @DBRouter
+    void updateTaskSendMessageFail(Task task);
 }

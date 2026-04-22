@@ -1538,3 +1538,920 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '7
 26-04-21.22:04:14.330 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
 26-04-21.22:04:14.838 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
 26-04-21.22:04:14.841 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.20:35:42.780 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 29684 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.20:35:42.781 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.20:35:43.591 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.20:35:43.593 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.20:35:43.623 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+26-04-22.20:35:45.040 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.20:35:45.402 [redisson-netty-2-5] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.20:35:45.663 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.20:35:47.884 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.20:35:47.958 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.20:35:48.140 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7ef41ca2:0/SimpleConnection@578d472a [delegate=amqp://admin@36.151.145.207:5672/, localPort= 56544]
+26-04-22.20:35:48.599 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 6.191 seconds (JVM running for 6.858)
+26-04-22.20:35:48.646 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5b94b04d] to prepare test instance [cn.gzy.test.domain.award.AwardServiceTest@5da3f32a]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cn.gzy.test.domain.award.AwardServiceTest': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cn.gzy.domain.award.service.IAwardService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:332)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:417)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:119)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cn.gzy.domain.award.service.IAwardService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1801)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:520)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:673)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:329)
+	... 29 common frames omitted
+26-04-22.20:35:48.688 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.20:35:48.721 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.20:35:49.469 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.20:35:49.620 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.20:35:49.623 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.20:35:49.624 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.20:38:01.779 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 39920 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.20:38:01.781 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.20:38:02.456 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.20:38:02.459 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.20:38:02.484 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+26-04-22.20:38:03.836 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.20:38:04.237 [redisson-netty-2-4] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.20:38:04.499 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.20:38:06.961 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.20:38:07.015 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.20:38:07.184 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5e98032e:0/SimpleConnection@2095c331 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 57199]
+26-04-22.20:38:07.611 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 6.195 seconds (JVM running for 6.777)
+26-04-22.20:38:07.902 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.20:38:08.479 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.20:38:08.789 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"02265036383","timestamp":1776861487790}
+26-04-22.20:38:08.827 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"02265036383","timestamp":1776861487790}
+26-04-22.20:38:09.661 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"51297381441","timestamp":1776861489382}
+26-04-22.20:38:09.691 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"51297381441","timestamp":1776861489382}
+26-04-22.20:38:10.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:38:10.025 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.20:38:10.071 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:38:10.130 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:38:10.162 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:38:10.162 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:38:10.192 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:38:10.434 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.20:38:10.492 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"46404329817","timestamp":1776861490247}
+26-04-22.20:38:10.522 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"46404329817","timestamp":1776861490247}
+26-04-22.20:38:10.663 [pool-3-thread-3 ] ERROR SendMessageTaskJob     - 定时任务，发送MQ消息失败 userId: null topic: send_award
+26-04-22.20:38:10.663 [pool-3-thread-4 ] ERROR SendMessageTaskJob     - 定时任务，发送MQ消息失败 userId: null topic: send_award
+26-04-22.20:38:11.377 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"84994763616","timestamp":1776861491086}
+26-04-22.20:38:11.408 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"84994763616","timestamp":1776861491086}
+26-04-22.20:38:12.259 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"44057209523","timestamp":1776861491972}
+26-04-22.20:38:12.288 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"44057209523","timestamp":1776861491972}
+26-04-22.20:38:13.148 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"30591063064","timestamp":1776861492858}
+26-04-22.20:38:13.182 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"30591063064","timestamp":1776861492858}
+26-04-22.20:38:14.028 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"67504056130","timestamp":1776861493741}
+26-04-22.20:38:14.069 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"67504056130","timestamp":1776861493741}
+26-04-22.20:38:14.898 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"55871889510","timestamp":1776861494624}
+26-04-22.20:38:14.929 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"55871889510","timestamp":1776861494624}
+26-04-22.20:38:15.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:38:15.042 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:38:15.111 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:38:15.111 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:38:15.141 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:38:15.172 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:38:15.216 [pool-3-thread-10] ERROR SendMessageTaskJob     - 定时任务，发送MQ消息失败 userId: null topic: send_award
+26-04-22.20:38:15.232 [pool-3-thread-11] ERROR SendMessageTaskJob     - 定时任务，发送MQ消息失败 userId: null topic: send_award
+26-04-22.20:38:15.741 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"87632315454","timestamp":1776861495491}
+26-04-22.20:38:15.773 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"87632315454","timestamp":1776861495491}
+26-04-22.20:38:16.623 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"96095678616","timestamp":1776861496341}
+26-04-22.20:38:16.653 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"96095678616","timestamp":1776861496341}
+26-04-22.20:38:17.393 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.20:38:17.423 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.20:38:17.543 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.20:38:17.697 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.20:38:17.701 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.20:38:17.701 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.20:41:07.424 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 37388 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.20:41:07.425 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.20:41:08.122 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.20:41:08.124 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.20:41:08.151 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+26-04-22.20:41:09.443 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.20:41:09.845 [redisson-netty-2-4] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.20:41:10.119 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.20:41:13.067 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.20:41:13.163 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.20:41:13.357 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5e98032e:0/SimpleConnection@2095c331 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 64480]
+26-04-22.20:41:13.827 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 6.79 seconds (JVM running for 7.452)
+26-04-22.20:41:14.121 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.20:41:14.683 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.20:41:14.987 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"31887938594","timestamp":1776861673998}
+26-04-22.20:41:15.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:15.019 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.20:41:15.030 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"31887938594","timestamp":1776861673998}
+26-04-22.20:41:15.059 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:15.115 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:15.115 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:15.149 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:15.183 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:15.404 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.20:41:15.807 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"44639222690","timestamp":1776861675580}
+26-04-22.20:41:15.840 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"44639222690","timestamp":1776861675580}
+26-04-22.20:41:16.653 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"25098956463","timestamp":1776861676384}
+26-04-22.20:41:16.687 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"25098956463","timestamp":1776861676384}
+26-04-22.20:41:17.501 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"04120336555","timestamp":1776861677235}
+26-04-22.20:41:17.534 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"04120336555","timestamp":1776861677235}
+26-04-22.20:41:18.364 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"92765281381","timestamp":1776861678086}
+26-04-22.20:41:18.398 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"92765281381","timestamp":1776861678086}
+26-04-22.20:41:19.243 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"61021258330","timestamp":1776861678968}
+26-04-22.20:41:19.278 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"61021258330","timestamp":1776861678968}
+26-04-22.20:41:20.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:20.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:20.064 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:20.064 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:20.097 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:20.104 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"70145612517","timestamp":1776861679831}
+26-04-22.20:41:20.132 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:20.166 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"70145612517","timestamp":1776861679831}
+26-04-22.20:41:20.949 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"20923727972","timestamp":1776861680685}
+26-04-22.20:41:20.982 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"20923727972","timestamp":1776861680685}
+26-04-22.20:41:21.816 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"94700227940","timestamp":1776861681538}
+26-04-22.20:41:21.849 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"94700227940","timestamp":1776861681538}
+26-04-22.20:41:22.691 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"90465436926","timestamp":1776861682406}
+26-04-22.20:41:22.724 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"90465436926","timestamp":1776861682406}
+26-04-22.20:41:25.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:25.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:25.110 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:25.149 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:25.150 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:25.184 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:30.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:30.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:30.106 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:30.106 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:30.140 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:30.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:35.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:35.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:35.072 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:35.072 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:35.106 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:35.141 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:40.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:40.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:40.081 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:40.081 [pool-3-thread-1 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:40.116 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:40.150 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:45.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:45.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:45.135 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:45.135 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:45.170 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:45.206 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:50.016 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:50.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:50.148 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:50.148 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:50.182 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:50.216 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:55.010 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:55.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:41:55.110 [pool-3-thread-14] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:55.110 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:41:55.145 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:41:55.180 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:00.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:00.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:00.136 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:00.136 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:00.173 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:00.208 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:05.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:05.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:05.136 [pool-3-thread-2 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:05.136 [pool-3-thread-1 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:05.171 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:05.206 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:10.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:10.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:10.109 [pool-3-thread-5 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:10.109 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:10.148 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:10.187 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:15.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:15.034 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:15.141 [pool-3-thread-9 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:15.143 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:15.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:15.209 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:20.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:20.038 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:20.103 [pool-3-thread-13] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:20.103 [pool-3-thread-14] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:20.138 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:20.174 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:25.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:25.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:25.110 [pool-3-thread-17] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:25.111 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:25.144 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:25.178 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:30.004 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:30.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:30.141 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:30.141 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:30.177 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:30.212 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:35.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:35.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:35.141 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:35.141 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:35.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:35.209 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:40.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:40.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:40.137 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:40.137 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:40.172 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:40.206 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:45.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:45.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:45.066 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:45.066 [pool-3-thread-14] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:45.107 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:45.143 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:50.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:50.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:50.134 [pool-3-thread-18] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:50.134 [pool-3-thread-17] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:50.167 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:50.203 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:55.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:55.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:42:55.100 [pool-3-thread-2 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:55.100 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:42:55.135 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:42:55.168 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:00.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:00.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:00.109 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:00.109 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:00.147 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:00.184 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:05.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:05.035 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:05.133 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:05.133 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:05.168 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:05.201 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:10.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:10.044 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:10.140 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:10.140 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:10.173 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:10.207 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:15.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:15.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:15.099 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:15.100 [pool-3-thread-17] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:15.140 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:15.178 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:20.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:20.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:20.138 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:20.139 [pool-3-thread-1 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:20.173 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:20.206 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:25.013 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:25.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:25.138 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:25.138 [pool-3-thread-5 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:25.172 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:25.206 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:30.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:30.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:30.132 [pool-3-thread-9 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:30.133 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:30.166 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:30.201 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:35.010 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:35.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:35.117 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:35.117 [pool-3-thread-13] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:35.154 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:35.187 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:40.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:40.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:40.074 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:40.074 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:40.108 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:40.142 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:45.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:45.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:45.065 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:45.065 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:45.100 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:45.134 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:50.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:50.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:50.070 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:50.070 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:50.111 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:50.148 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:55.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:55.034 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:43:55.066 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:55.067 [pool-3-thread-9 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:43:55.099 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:43:55.133 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:00.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:00.050 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:00.078 [pool-3-thread-14] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:00.078 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:00.112 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:00.145 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:05.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:05.048 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:05.143 [pool-3-thread-18] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:05.143 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:05.177 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:05.211 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:10.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:10.042 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:10.105 [pool-3-thread-2 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:10.105 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:10.138 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:10.173 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:15.000 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:15.032 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:15.097 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:15.097 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:15.131 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:15.164 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:20.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:20.035 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:20.132 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:20.132 [pool-3-thread-9 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:20.171 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:20.204 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:25.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:25.042 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:25.138 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:25.138 [pool-3-thread-14] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:25.171 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:25.206 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:30.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:30.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:30.131 [pool-3-thread-18] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:30.131 [pool-3-thread-17] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:30.165 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:30.198 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:35.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:35.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:35.137 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:35.137 [pool-3-thread-1 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:35.171 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:35.204 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:40.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:40.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:40.143 [pool-3-thread-5 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:40.143 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:40.179 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:40.214 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:45.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:45.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:45.133 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:45.133 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:45.167 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:45.202 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:50.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:50.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:50.108 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:50.108 [pool-3-thread-13] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:50.141 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:50.176 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:55.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:55.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:44:55.147 [pool-3-thread-17] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:55.147 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:44:55.188 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:44:55.222 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:00.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:00.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:00.140 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:00.140 [pool-3-thread-1 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:00.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:00.214 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:05.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:05.035 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:05.068 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:05.069 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:05.102 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:05.135 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:10.000 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:10.032 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:10.130 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:10.130 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:10.167 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:10.202 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:15.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:15.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:15.107 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:15.107 [pool-3-thread-13] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:15.142 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:15.176 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:20.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:20.046 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:20.141 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:20.141 [pool-3-thread-17] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:20.174 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:20.208 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:25.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:25.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:25.134 [pool-3-thread-2 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:25.134 [pool-3-thread-1 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:25.174 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:25.208 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:30.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:30.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:30.104 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:30.104 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:30.140 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:30.173 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:35.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:35.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:35.100 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:35.101 [pool-3-thread-9 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:35.134 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:35.168 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:40.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:40.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:40.136 [pool-3-thread-14] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:40.137 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:40.172 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:40.207 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:45.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:45.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:45.102 [pool-3-thread-18] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:45.102 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:45.140 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:45.178 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:50.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:50.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:50.097 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:50.097 [pool-3-thread-2 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:50.132 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:50.166 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:55.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:55.047 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.20:45:55.108 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:55.108 [pool-3-thread-5 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:55.144 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.20:45:55.179 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.20:45:58.603 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.20:45:58.636 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.20:45:58.857 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.20:45:59.242 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.20:45:59.244 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.20:45:59.244 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:12:29.920 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 15632 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.21:12:29.921 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.21:12:30.916 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.21:12:30.918 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.21:12:30.947 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+26-04-22.21:12:32.663 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.21:12:33.069 [redisson-netty-2-4] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:12:33.354 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:12:36.675 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.21:12:36.741 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:12:36.929 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#59282dc6:0/SimpleConnection@1b08d26f [delegate=amqp://admin@36.151.145.207:5672/, localPort= 56027]
+26-04-22.21:12:37.366 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 7.876 seconds (JVM running for 8.863)
+26-04-22.21:12:40.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:12:40.042 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:12:40.042 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:12:40.062 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:12:40.591 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:12:40.683 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:12:40.683 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:13:16.939 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:13:16.939 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=1m6s348ms330µs900ns).
+26-04-22.21:13:16.949 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:13:16.979 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:13:16.983 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:13:16.994 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:13:17.025 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:13:17.044 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:13:17.044 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:13:17.147 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:13:17.978 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:13:18.024 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:13:18.026 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:13:18.026 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:13:20.148 [redisson-netty-2-6] ERROR rejectedExecution      - Failed to submit a listener notification task. Event loop shut down?
+java.util.concurrent.RejectedExecutionException: event executor terminated
+	at io.netty.util.concurrent.SingleThreadEventExecutor.reject(SingleThreadEventExecutor.java:934)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.offerTask(SingleThreadEventExecutor.java:351)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.addTask(SingleThreadEventExecutor.java:344)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.execute(SingleThreadEventExecutor.java:836)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.execute0(SingleThreadEventExecutor.java:827)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.execute(SingleThreadEventExecutor.java:817)
+	at io.netty.util.concurrent.DefaultPromise.safeExecute(DefaultPromise.java:862)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:500)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:625)
+	at io.netty.util.concurrent.DefaultPromise.setSuccess(DefaultPromise.java:97)
+	at io.netty.channel.group.DefaultChannelGroupFuture.setSuccess0(DefaultChannelGroupFuture.java:200)
+	at io.netty.channel.group.DefaultChannelGroupFuture.access$400(DefaultChannelGroupFuture.java:41)
+	at io.netty.channel.group.DefaultChannelGroupFuture$1.operationComplete(DefaultChannelGroupFuture.java:75)
+	at io.netty.channel.group.DefaultChannelGroupFuture$1.operationComplete(DefaultChannelGroupFuture.java:48)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:625)
+	at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:105)
+	at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+	at io.netty.channel.AbstractChannel$CloseFuture.setClosed(AbstractChannel.java:1164)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.doClose0(AbstractChannel.java:755)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:731)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:620)
+	at io.netty.channel.nio.NioEventLoop.closeAll(NioEventLoop.java:838)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:595)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+26-04-22.21:15:20.620 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 3704 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.21:15:20.622 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.21:15:21.386 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.21:15:21.389 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.21:15:21.420 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+26-04-22.21:15:22.694 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.21:15:23.074 [redisson-netty-2-4] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:15:23.340 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:15:26.178 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.21:15:26.284 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:15:26.456 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#59aa1d1c:0/SimpleConnection@40dc2ade [delegate=amqp://admin@36.151.145.207:5672/, localPort= 58182]
+26-04-22.21:15:26.870 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:15:26.876 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 6.679 seconds (JVM running for 7.371)
+26-04-22.21:15:26.900 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:15:30.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:15:30.030 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:15:30.030 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:15:30.064 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:15:30.586 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:15:30.588 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:15:57.874 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:15:57.875 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=57s288ms778µs400ns).
+26-04-22.21:15:57.875 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=57s286ms451µs800ns).
+26-04-22.21:16:07.186 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:03.427 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:04.675 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:04.675 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:04.679 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:04.679 [pool-3-thread-9 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:04.707 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:04.717 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:04.717 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:04.740 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:04.772 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:04.803 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:04.834 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:04.865 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:05.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:05.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:05.084 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:05.084 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:05.114 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:05.143 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:10.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:10.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:10.148 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:10.148 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:10.179 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:10.212 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:15.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:15.050 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:15.126 [pool-3-thread-1 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:15.127 [pool-3-thread-5 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:20.783 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:24.311 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:24.343 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:24.347 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:24.443 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:24.443 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:36.555 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:36.556 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:36.587 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:17:36.587 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:36.603 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:17:36.633 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:17:36.692 [pool-3-thread-10] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:17:36.692 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:17:37.597 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:17:37.625 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:17:37.630 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:17:37.631 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:18:15.697 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 45748 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.21:18:15.697 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.21:18:16.390 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.21:18:16.392 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.21:18:16.416 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+26-04-22.21:18:17.656 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.21:18:17.986 [redisson-netty-2-4] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:18:18.271 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:18:20.686 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.21:18:20.750 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:18:20.941 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3c28181b:0/SimpleConnection@773c7147 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 58518]
+26-04-22.21:18:21.434 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:21.438 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 6.056 seconds (JVM running for 6.622)
+26-04-22.21:18:21.472 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:25.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:25.063 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:25.119 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:18:25.119 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:18:25.688 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:18:25.688 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:18:25.784 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:25.784 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:25.821 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:25.860 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:30.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:30.049 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:30.119 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:30.119 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:30.159 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:30.196 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:35.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:35.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:35.109 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:35.109 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:35.146 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:35.183 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:40.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:40.050 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:40.118 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:40.118 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:40.154 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:40.191 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:45.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:45.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:18:45.142 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:45.142 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:45.178 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:18:45.216 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:18:46.725 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:18:46.761 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:18:47.267 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:18:47.473 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:18:47.476 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:18:47.477 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:20:15.313 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 32696 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.21:20:15.314 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.21:20:16.140 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.21:20:16.143 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.21:20:16.188 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+26-04-22.21:20:17.517 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.21:20:17.883 [redisson-netty-2-4] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:20:18.149 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:20:20.983 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.21:20:21.051 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:20:21.233 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1ef5cde4:0/SimpleConnection@6c399d4 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 54695]
+26-04-22.21:20:21.688 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 6.77 seconds (JVM running for 7.466)
+26-04-22.21:20:25.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:20:25.074 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:20:25.130 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:20:25.130 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:20:25.678 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:20:25.697 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:20:52.212 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=55s294ms353µs).
+26-04-22.21:20:52.212 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:20:52.212 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=55s313ms486µs500ns).
+26-04-22.21:20:56.457 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:20:56.470 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:20:56.470 [pool-3-thread-5 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:20:56.502 [pool-3-thread-8 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:20:56.502 [pool-3-thread-7 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:20:56.515 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:20:56.531 [pool-3-thread-12] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:20:56.531 [pool-3-thread-11] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:20:56.549 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:20:56.586 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:20:56.621 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:20:56.683 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:20:56.717 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:21:00.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:21:00.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:21:00.113 [pool-3-thread-15] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:21:00.113 [pool-3-thread-16] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:21:00.147 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:21:00.181 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:21:05.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:21:05.034 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:21:05.108 [pool-3-thread-20] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:21:05.108 [pool-3-thread-19] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:21:05.144 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:21:05.181 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:21:10.000 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:21:10.034 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:22:00.612 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=1m9s621ms452µs100ns).
+26-04-22.21:22:00.612 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:22:00.614 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=1m9s622ms362µs900ns).
+26-04-22.21:22:00.615 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:22:00.615 [pool-3-thread-2 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:22:00.648 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:22:00.649 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:22:00.665 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:22:00.684 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:22:00.698 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:22:00.719 [pool-3-thread-9 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:22:00.719 [pool-3-thread-6 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:22:00.735 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:22:01.662 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:22:01.665 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:22:01.665 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:22:10.563 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 25516 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.21:22:10.565 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.21:22:11.423 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.21:22:11.426 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.21:22:11.471 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+26-04-22.21:22:12.814 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.21:22:13.161 [redisson-netty-2-6] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:22:13.428 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:22:16.257 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.21:22:16.357 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:22:16.527 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#48751d8a:0/SimpleConnection@1bca9b64 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 56804]
+26-04-22.21:22:16.948 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:22:16.950 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 6.814 seconds (JVM running for 7.524)
+26-04-22.21:22:16.979 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:22:20.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:22:20.032 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:22:20.032 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:22:20.055 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:22:20.571 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:22:20.591 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:27:05.737 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:05.737 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=5m15s146ms486µs700ns).
+26-04-22.21:27:05.737 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=5m15s166ms246µs600ns).
+26-04-22.21:27:05.741 [AMQP Connection 36.151.145.207:5672] WARN  ForgivingExceptionHandler - An unexpected connection driver error occurred (Exception message: Connection reset)
+26-04-22.21:27:05.744 [pool-3-thread-3 ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:27:05.758 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:27:05.758 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:27:05.758 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:27:05.758 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:27:05.760 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:27:05.761 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:27:05.765 [scheduling-1    ] ERROR updateActivitySkuStockJob - 定时任务，更新活动sku库存失败
+org.springframework.dao.InvalidDataAccessApiUsageException: java.lang.InterruptedException; nested exception is org.redisson.client.RedisException: java.lang.InterruptedException
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:52)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnectionFactory.translateExceptionIfPossible(RedissonConnectionFactory.java:91)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:242)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at cn.gzy.infrastructure.persistent.repository.ActivityRepository$$EnhancerBySpringCGLIB$$3da539fd.takeQueueValue(<generated>)
+	at cn.gzy.domain.activity.service.quota.RaffleActivityAccountQuotaService.takeQueueValue(RaffleActivityAccountQuotaService.java:63)
+	at cn.gzy.trigger.job.updateActivitySkuStockJob.exec(updateActivitySkuStockJob.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.redisson.client.RedisException: java.lang.InterruptedException
+	at org.redisson.command.CommandAsyncService.get(CommandAsyncService.java:114)
+	at org.redisson.RedissonObject.get(RedissonObject.java:90)
+	at org.redisson.RedissonQueue.poll(RedissonQueue.java:105)
+	at cn.gzy.infrastructure.persistent.repository.ActivityRepository.takeQueueValue(ActivityRepository.java:234)
+	at cn.gzy.infrastructure.persistent.repository.ActivityRepository$$FastClassBySpringCGLIB$$9abb50c6.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 21 common frames omitted
+Caused by: java.lang.InterruptedException: null
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:347)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at org.redisson.command.CommandAsyncService.get(CommandAsyncService.java:110)
+	... 30 common frames omitted
+26-04-22.21:27:05.881 [pool-3-thread-3 ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#48751d8a:1/SimpleConnection@2fe64be8 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 53113]
+26-04-22.21:27:06.018 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:27:06.171 [pool-3-thread-4 ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:27:06.295 [pool-3-thread-4 ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#48751d8a:2/SimpleConnection@72761284 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 53116]
+26-04-22.21:27:08.824 [redisson-netty-2-10] ERROR rejectedExecution      - Failed to submit a listener notification task. Event loop shut down?
+java.util.concurrent.RejectedExecutionException: event executor terminated
+	at io.netty.util.concurrent.SingleThreadEventExecutor.reject(SingleThreadEventExecutor.java:934)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.offerTask(SingleThreadEventExecutor.java:351)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.addTask(SingleThreadEventExecutor.java:344)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.execute(SingleThreadEventExecutor.java:836)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.execute0(SingleThreadEventExecutor.java:827)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.execute(SingleThreadEventExecutor.java:817)
+	at io.netty.util.concurrent.DefaultPromise.safeExecute(DefaultPromise.java:862)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:500)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:625)
+	at io.netty.util.concurrent.DefaultPromise.setSuccess(DefaultPromise.java:97)
+	at io.netty.channel.group.DefaultChannelGroupFuture.setSuccess0(DefaultChannelGroupFuture.java:200)
+	at io.netty.channel.group.DefaultChannelGroupFuture.access$400(DefaultChannelGroupFuture.java:41)
+	at io.netty.channel.group.DefaultChannelGroupFuture$1.operationComplete(DefaultChannelGroupFuture.java:75)
+	at io.netty.channel.group.DefaultChannelGroupFuture$1.operationComplete(DefaultChannelGroupFuture.java:48)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:625)
+	at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:105)
+	at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+	at io.netty.channel.AbstractChannel$CloseFuture.setClosed(AbstractChannel.java:1164)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.doClose0(AbstractChannel.java:755)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:731)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:620)
+	at io.netty.channel.nio.NioEventLoop.closeAll(NioEventLoop.java:838)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:595)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+26-04-22.21:27:15.449 [main            ] INFO  AwardServiceTest       - Starting AwardServiceTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 40664 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-04-22.21:27:15.450 [main            ] INFO  AwardServiceTest       - The following 1 profile is active: "dev"
+26-04-22.21:27:16.150 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-22.21:27:16.152 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-22.21:27:16.177 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+26-04-22.21:27:17.351 [main            ] INFO  Version                - Redisson 3.23.4
+26-04-22.21:27:17.715 [redisson-netty-2-5] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:27:17.959 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-04-22.21:27:20.181 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-22.21:27:20.257 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-04-22.21:27:20.463 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5e98032e:0/SimpleConnection@7b795db7 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 53246]
+26-04-22.21:27:20.948 [main            ] INFO  AwardServiceTest       - Started AwardServiceTest in 5.819 seconds (JVM running for 6.407)
+26-04-22.21:27:25.016 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:25.044 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:27:25.044 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-04-22.21:27:25.070 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:25.610 [pool-3-thread-1 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:27:25.610 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-04-22.21:27:25.701 [pool-3-thread-3 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:27:25.701 [pool-3-thread-4 ] INFO  EventPublisher         - 发送MQ消息 topic:send_award message:{"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:27:25.743 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"29510804265","timestamp":1712391047005}
+26-04-22.21:27:25.779 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SendAwardCustomer      - 监听用户奖品发送消息 topic: send_award message: {"data":{"awardId":101,"awardTitle":"OpenAI 增加使用次数","userId":"xiaofuge"},"id":"26021447219","timestamp":1712391046477}
+26-04-22.21:27:30.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:30.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:35.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:35.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:40.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:40.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:45.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:45.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:50.000 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:50.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:54.826 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:27:54.864 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-22.21:27:55.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:55.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-04-22.21:27:55.069 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:27:55.079 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-22.21:27:55.081 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-22.21:27:55.081 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
