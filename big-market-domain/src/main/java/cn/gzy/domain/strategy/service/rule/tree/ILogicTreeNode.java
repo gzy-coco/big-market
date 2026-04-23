@@ -2,6 +2,8 @@ package cn.gzy.domain.strategy.service.rule.tree;
 
 import cn.gzy.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
 
+import java.util.Date;
+
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -10,5 +12,5 @@ import cn.gzy.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
  */
 public interface ILogicTreeNode {
 
-    DefaultTreeFactory.TreeActionEntity  logic(Long strategyId, String userId, Integer awardId,String ruleValue);
+    DefaultTreeFactory.TreeActionEntity  logic(Long strategyId, String userId, Integer awardId, String ruleValue, Date endDateTime);
 }

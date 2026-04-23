@@ -17,6 +17,7 @@ import cn.gzy.types.common.Constants;
 import cn.gzy.types.enums.ResponseCode;
 import cn.gzy.types.exception.AppException;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.A;
 import org.redisson.api.RBlockingQueue;
 import org.redisson.api.RDelayedQueue;
 import org.springframework.dao.DuplicateKeyException;
@@ -68,6 +69,8 @@ public class ActivityRepository implements IActivityRepository {
 
     @Resource
     private IUserRaffleOrderDao userRaffleOrderDao;
+
+
 
     @Override
     public ActivitySkuEntity queryActivitySku(Long sku) {
@@ -467,5 +470,16 @@ public class ActivityRepository implements IActivityRepository {
             activitySkuEntities.add(activitySkuEntity);
         }
         return activitySkuEntities;
+    }
+
+    @Override
+    public Integer queryRaffleActivityAccountDayPartakeCount(Long activityId, String userId) {
+        RaffleActivityAccountDay raffleActivityAccountDay = new RaffleActivityAccountDay();
+        raffleActivityAccountDay.setUserId(userId);
+        raffleActivityAccountDay.setActivityId(activityId);
+        raffleActivityAccountDay.setDay(raffleActivityAccountDay.currentDay());
+        Integer dayPartakeCount = raffleActivityAccountDayDao.queryRaffleActivityAccountDayPartakeCount(raffleActivityAccountDay);
+        // 当日未参与抽奖则为0次
+        return null == dayPartakeCount ? 0 : dayPartakeCount;
     }
 }
