@@ -2,8 +2,8 @@ package cn.gzy.trigger.api;
 
 import cn.gzy.trigger.api.dto.RaffleAwardListRequestDTO;
 import cn.gzy.trigger.api.dto.RaffleAwardListResponseDTO;
-import cn.gzy.trigger.api.dto.RaffleRequestDTO;
-import cn.gzy.trigger.api.dto.RaffleResponseDTO;
+import cn.gzy.trigger.api.dto.RaffleStrategyRequestDTO;
+import cn.gzy.trigger.api.dto.RaffleStrategyResponseDTO;
 import cn.gzy.types.model.Response;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * @description 抽奖服务接口
  * @create 2024-02-14 09:33
  */
-public interface IRaffleService {
+public interface IRaffleStrategyService {
 
     /**
      * 策略装配接口
@@ -37,6 +37,6 @@ public interface IRaffleService {
      * @param requestDTO 请求参数
      * @return 抽奖结果
      */
-    Response<RaffleResponseDTO> randomRaffle(RaffleRequestDTO requestDTO);
+    Response<RaffleStrategyResponseDTO> randomRaffle(RaffleStrategyRequestDTO requestDTO);
 
 }

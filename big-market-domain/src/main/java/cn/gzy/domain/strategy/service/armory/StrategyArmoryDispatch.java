@@ -64,6 +64,12 @@ public class StrategyArmoryDispatch implements IStrategyArmory,IStrategyDispatch
         return true;
     }
 
+    @Override
+    public boolean assembleLotteryStrategyByActivityId(Long activityId) {
+        Long strategyId = repository.queryStrategyIdByActivityId(activityId);
+        return assembleLotteryStrategy(strategyId);
+    }
+
     /**
      * 计算公式；
      * 1. 找到范围内最小的概率值，比如 0.1、0.02、0.003，需要找到的值是 0.003

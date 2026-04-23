@@ -1,9 +1,6 @@
 package cn.gzy.trigger.listener;
 
 import cn.gzy.domain.activity.service.IRaffleActivitySkuStockService;
-import cn.gzy.types.event.BaseEvent;
-import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.TypeReference;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

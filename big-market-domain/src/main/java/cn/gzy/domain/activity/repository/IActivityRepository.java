@@ -7,6 +7,7 @@ import cn.gzy.domain.activity.model.valobj.ActivitySkuStockKeyVO;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -44,5 +45,8 @@ public interface IActivityRepository {
     void saveCreatePartakeOrderAggregate(CreatePartakeOrderAggregate createPartakeOrderAggregate);
 
     UserRaffleOrderEntity queryNoUserRaffleOrder(PartakeRaffleActivityEntity partakeRaffleActivityEntity);
+
+    List<ActivitySkuEntity> queryActivitySkuByActivityId(Long activityId);
+
 
 }

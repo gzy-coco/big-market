@@ -1,7 +1,10 @@
 package cn.gzy.infrastructure.persistent.dao;
 
+import cn.gzy.domain.activity.model.entity.ActivitySkuEntity;
 import cn.gzy.infrastructure.persistent.po.RaffleActivitySku;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -16,5 +19,7 @@ public interface IRaffleActivitySkuDao {
     void updateActivitySkuStock(Long sku);
 
     void clearActivitySkuStock(Long sku);
+
+    List<RaffleActivitySku> queryActivtySkuByActivityId(Long activityId);
 
 }
