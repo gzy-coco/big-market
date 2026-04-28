@@ -1,6 +1,7 @@
 package cn.gzy.domain.activity.service;
 
 
+import cn.gzy.domain.activity.model.entity.ActivityAccountEntity;
 import cn.gzy.domain.activity.model.entity.SkuRechargeEntity;
 
 /**
@@ -29,5 +30,18 @@ public interface IRaffleActivityAccountQuotaService {
      * @return 参与次数
      */
     Integer queryRaffleActivityAccountDayPartakeCount(Long activityId, String userId);
+
+    ActivityAccountEntity queryUserActivityAccount(String userId, Long activityId);
+
+    /**
+     * 查询活动账户 - 总，参与次数
+     *
+     * @param activityId 活动ID
+     * @param userId     用户ID
+     * @return 参与次数
+     */
+    Integer queryRaffleActivityAccountPartakeCount(Long activityId, String userId);
+
+
 
 }

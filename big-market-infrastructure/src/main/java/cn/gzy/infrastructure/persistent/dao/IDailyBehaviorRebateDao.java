@@ -15,4 +15,6 @@ public interface IDailyBehaviorRebateDao {
 
     List<DailyBehaviorRebate> queryDailyBehaviorRebateByBehaviorType(String behaviorType);
 
+
+
 }

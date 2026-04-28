@@ -32,7 +32,6 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
     private IStrategyDispatch strategyDispatch;
 
     // 根据用户ID查询用户抽奖消耗的积分值，本章节我们先写死为固定的值。后续需要从数据库中查询。
-    public Long userScore = 4500L;
 
     /**
      * 权重责任链过滤；
@@ -53,6 +52,7 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
         List<Long> analyticalSortedKeys = new ArrayList<>(analyticalValueGroup.keySet());
         Collections.sort(analyticalSortedKeys);
 
+        Integer userScore = repository.queryActivityAccountTotalUseCount(userId,strategyId);
         // 3. 找出最小符合的值，也就是【4500 积分，能找到 4000:102,103,104,105】、【5000 积分，能找到 5000:102,103,104,105,106,107】
         Long nextValue = analyticalSortedKeys.stream()
                 .sorted(Comparator.reverseOrder())
