@@ -51,7 +51,7 @@ public class BehaviorRebateService implements IBehaviorRebateService{
             // MQ 消息对象
             SendRebateMessageEvent.RebateMessage rebateMessage = SendRebateMessageEvent.RebateMessage.builder()
                     .userId(behaviorEntity.getUserId())
-                    .rebateType(dailyBehaviorRebateVO.getBehaviorType())
+                    .rebateType(dailyBehaviorRebateVO.getRebateType())
                     .rebateConfig(dailyBehaviorRebateVO.getRebateConfig())
                     .bizId(bizId)
                     .build();

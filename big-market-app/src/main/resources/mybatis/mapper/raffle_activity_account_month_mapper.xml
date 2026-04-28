@@ -24,6 +24,11 @@
         values (
                    #{userId}, #{activityId}, #{month}, #{monthCount}, #{monthCountSurplus}, now(), now())
     </insert>
+    <insert id="addAccountQuota"  parameterType="cn.gzy.infrastructure.persistent.po.RaffleActivityAccountMonth">
+        update raffle_activity_account_month
+        set month_count = month_count + #{monthCount},month_count_surplus=#{monthCountSurplus},update_time=now()
+        where user_id=#{userId} and activity_id=#{activityId} and month=#{month}
+    </insert>
 
     <update id="updateActivityAccountMonthSubtractionQuota" parameterType="cn.gzy.infrastructure.persistent.po.RaffleActivityAccountMonth">
         update raffle_activity_account_month

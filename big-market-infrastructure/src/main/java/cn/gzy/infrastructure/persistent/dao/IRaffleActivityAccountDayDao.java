@@ -3,6 +3,7 @@ package cn.gzy.infrastructure.persistent.dao;
 
 import cn.bugstack.middleware.db.router.annotation.DBRouter;
 import cn.gzy.infrastructure.persistent.po.RaffleActivityAccountDay;
+import cn.gzy.infrastructure.persistent.po.RaffleActivityAccountMonth;
 import org.apache.ibatis.annotations.Mapper;
 
 
@@ -23,4 +24,6 @@ public interface IRaffleActivityAccountDayDao {
 
     @DBRouter
     Integer queryRaffleActivityAccountDayPartakeCount(RaffleActivityAccountDay raffleActivityAccountDay);
+
+    void addAccountQuota(RaffleActivityAccountDay raffleActivityAccountDay);
 }
