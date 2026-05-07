@@ -20,7 +20,7 @@ spring:
     addresses: 36.151.145.207
     port: 5672
     username: admin
-    password: admin
+    password: ZN0611228gzy
     listener:
       simple:
         prefetch: 1 # 每次投递n个消息，消费完在投递n个
@@ -55,7 +55,7 @@ mini-db-router:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://36.151.145.207:13306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
-        password: 123456
+        password: ZN0611228gzy
         type-class-name: com.zaxxer.hikari.HikariDataSource
         pool:
           pool-name: Retail_HikariCP
@@ -70,7 +70,7 @@ mini-db-router:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://36.151.145.207:13306/big_market_01?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
-        password: 123456
+        password: ZN0611228gzy
         type-class-name: com.zaxxer.hikari.HikariDataSource
         pool:
           pool-name: Retail_HikariCP
@@ -85,7 +85,7 @@ mini-db-router:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://36.151.145.207:13306/big_market_02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
-        password: 123456
+        password: ZN0611228gzy
         type-class-name: com.zaxxer.hikari.HikariDataSource
         pool:
           pool-name: Retail_HikariCP
@@ -107,6 +107,7 @@ redis:
     config:
       host: 36.151.145.207
       port: 16379
+      password: ZN0611228gzy
       pool-size: 10
       min-idle-size: 5
       idle-timeout: 30000
