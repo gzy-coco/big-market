@@ -35,6 +35,8 @@ public class RaffleActivityControllerTest {
 
     @Test
     public void test_draw() throws InterruptedException {
+        int[] arr = new int[12];
+        int l = arr.length;
         ActivityDrawRequestDTO request = new ActivityDrawRequestDTO();
         request.setActivityId(100301L);
         request.setUserId("user003");
