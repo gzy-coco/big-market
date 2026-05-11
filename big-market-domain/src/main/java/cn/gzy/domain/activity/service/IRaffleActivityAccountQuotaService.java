@@ -2,6 +2,7 @@ package cn.gzy.domain.activity.service;
 
 
 import cn.gzy.domain.activity.model.entity.ActivityAccountEntity;
+import cn.gzy.domain.activity.model.entity.DeliveryOrderEntity;
 import cn.gzy.domain.activity.model.entity.SkuRechargeEntity;
 
 /**
@@ -41,7 +42,10 @@ public interface IRaffleActivityAccountQuotaService {
      * @return 参与次数
      */
     Integer queryRaffleActivityAccountPartakeCount(Long activityId, String userId);
-
-
+    /**
+     * 订单出货 - 积分充值
+     * @param deliveryOrderEntity 出货单实体对象
+     */
+    void updateOrder(DeliveryOrderEntity deliveryOrderEntity);
 
 }

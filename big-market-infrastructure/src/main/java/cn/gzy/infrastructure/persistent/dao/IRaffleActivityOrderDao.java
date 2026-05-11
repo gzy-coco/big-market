@@ -22,4 +22,11 @@ public interface IRaffleActivityOrderDao {
     @DBRouter
     List<RaffleActivityOrder> queryRaffleActivityOrderByUserId(String userId);
 
+
+    @DBRouter
+    RaffleActivityOrder queryRaffleActivityOrder(RaffleActivityOrder raffleActivityOrderReq);
+
+    @DBRouter
+    int updateOrderCompleted(RaffleActivityOrder raffleActivityOrderReq);
+
 }
