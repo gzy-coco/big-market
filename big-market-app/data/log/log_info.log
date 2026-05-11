@@ -5939,3 +5939,603 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'total_coun
 26-05-11.10:23:39.172 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
 26-05-11.10:23:39.173 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
 26-05-11.10:23:39.173 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.14:42:00.830 [main            ] INFO  RaffleActivityControllerTest - Starting RaffleActivityControllerTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 15172 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-05-11.14:42:00.831 [main            ] INFO  RaffleActivityControllerTest - The following 1 profile is active: "dev"
+26-05-11.14:42:01.737 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-11.14:42:01.739 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-11.14:42:01.771 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+26-05-11.14:42:02.887 [main            ] INFO  Version                - Redisson 3.23.4
+26-05-11.14:42:03.198 [redisson-netty-2-6] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.14:42:03.425 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.14:42:06.098 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-05-11.14:42:06.170 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-05-11.14:42:06.348 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#749baa0c:0/SimpleConnection@4efed0e0 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 52332]
+26-05-11.14:42:07.177 [main            ] INFO  RaffleActivityControllerTest - Started RaffleActivityControllerTest in 6.715 seconds (JVM running for 7.314)
+26-05-11.14:42:07.376 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.14:42:07.963 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.14:42:08.017 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.14:42:08.467 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.14:42:08.610 [main            ] INFO  ActivityBaseActionChain - 活动责任链-基础信息【有效期、状态、库存(sku)】校验开始。sku:9011 activityId:100301
+26-05-11.14:42:08.610 [main            ] INFO  ActivitySkuStockActionChain - 活动责任链-商品库存处理【有效期、状态、库存(sku)】开始。sku:9011 activityId:100301
+26-05-11.14:42:08.683 [main            ] INFO  ActivitySkuStockActionChain - 活动责任链-商品库存处理【有效期、状态、库存(sku)】成功。sku:9011 activityId:100301
+26-05-11.14:42:09.063 [main            ] INFO  RaffleActivityController - 积分兑换商品，创建订单完成 userId:xiaofuge sku:9011 outBusinessNo:847249320318
+26-05-11.14:42:09.064 [main            ] INFO  CreditAdjustService    - 增加账户积分额度开始 userId:xiaofuge tradeName:CONVERT_SKU amount:1.68
+26-05-11.14:42:09.673 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:credit_adjust_success message:{"data":{"amount":1.68,"orderId":"226790533993","outBusinessNo":"847249320318","userId":"xiaofuge"},"id":"30865305374","timestamp":1778481729065}
+26-05-11.14:42:09.710 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  CreditAdjustSuccessCustomer - 监听积分账户调整成功消息，进行交易商品发货 topic: credit_adjust_success message: {"data":{"amount":1.68,"orderId":"226790533993","outBusinessNo":"847249320318","userId":"xiaofuge"},"id":"30865305374","timestamp":1778481729065}
+26-05-11.14:42:09.774 [main            ] INFO  CreditRepository       - 调整账户积分记录，发送MQ消息完成 userId: xiaofuge orderId:226790533993 topic: credit_adjust_success
+26-05-11.14:42:09.774 [main            ] INFO  CreditAdjustService    - 增加账户积分额度完成 userId:xiaofuge orderId:226790533993
+26-05-11.14:42:09.774 [main            ] INFO  RaffleActivityController - 积分兑换商品，支付订单完成  userId:xiaofuge sku:9011 orderId:226790533993
+26-05-11.14:42:09.775 [main            ] INFO  RaffleActivityControllerTest - 请求参数：SkuProductShopCartRequestDTO(userId=xiaofuge, sku=9011)
+26-05-11.14:42:09.777 [main            ] INFO  RaffleActivityControllerTest - 测试结果：{"code":"0000","data":true,"info":"成功"}
+26-05-11.14:42:10.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:10.021 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.14:42:10.055 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:10.090 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存 sku:9011 activityId:100301
+26-05-11.14:42:10.492 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.14:42:15.004 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:15.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存 sku:9011 activityId:100301
+26-05-11.14:42:15.162 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:20.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:20.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:25.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:25.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:30.010 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:30.044 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:35.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:35.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:40.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:40.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:45.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:45.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:50.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:50.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:55.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:42:55.033 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:00.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:00.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:05.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:05.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:10.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:10.051 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:15.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:15.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:20.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:20.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:25.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:25.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:30.015 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:30.051 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:35.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:35.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:40.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:40.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:45.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:45.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:50.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:50.048 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:55.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:43:55.048 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:00.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:00.038 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:05.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:05.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:10.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:10.046 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:15.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:15.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:20.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:20.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:25.015 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:25.050 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:30.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:30.046 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:35.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:35.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:40.010 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:40.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:45.015 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:45.051 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:50.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:50.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:55.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:44:55.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:00.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:00.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:05.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:05.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:10.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:10.050 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:15.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:15.050 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:20.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:20.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:25.009 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:25.042 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:30.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:30.046 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:35.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:35.044 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:40.009 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:40.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:45.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:45.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:50.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:50.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:55.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:45:55.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:00.004 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:00.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:05.000 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:05.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:10.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:10.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:15.009 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:15.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:20.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:20.047 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:25.009 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:25.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:30.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:30.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:35.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:35.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:40.000 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:40.031 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:45.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:45.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:50.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:50.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:55.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:46:55.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:00.010 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:00.048 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:05.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:05.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:10.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:10.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:15.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:15.048 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:20.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:20.048 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:25.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:25.034 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:30.007 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:30.038 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:35.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:35.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:40.013 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:40.048 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:45.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:45.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:50.007 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:50.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:55.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:47:55.033 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:00.010 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:00.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:05.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:05.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:10.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:10.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:15.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:15.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:20.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:20.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:25.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:25.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:30.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:30.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:35.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:35.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:40.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:40.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:45.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:45.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:50.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:50.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:55.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:48:55.049 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:00.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:00.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:05.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:05.038 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:10.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:10.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:15.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:15.046 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:20.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:20.048 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:25.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:25.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:30.009 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:30.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:35.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:35.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:40.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:40.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:45.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:45.051 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:50.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:50.050 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:55.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:49:55.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:00.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:00.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:05.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:05.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:10.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:10.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:15.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:15.058 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:20.007 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:20.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:25.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:25.033 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:30.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:30.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:35.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:35.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:40.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:40.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:45.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:45.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:50.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:50.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:55.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:50:55.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:00.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:00.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:05.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:05.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:10.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:10.042 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:15.004 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:15.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:20.010 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:20.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:25.007 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:25.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:30.009 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:30.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:35.010 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:35.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:40.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:40.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:45.010 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:45.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:50.007 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:50.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:55.009 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:51:55.044 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:00.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:00.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:05.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:05.035 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:10.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:10.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:15.000 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:15.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:20.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:20.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:25.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:25.050 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:30.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:30.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:35.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:35.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:40.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:40.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:45.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:45.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:50.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:50.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:55.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:52:55.038 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:00.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:00.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:05.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:05.046 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:10.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:10.042 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:15.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:15.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:20.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:20.034 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:25.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:25.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:30.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:30.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:35.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:35.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:40.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:40.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:45.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:45.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:50.000 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:50.034 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:55.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:53:55.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:00.000 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:00.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:05.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:05.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:10.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:10.038 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:15.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:15.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:20.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:20.037 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:25.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:25.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:30.007 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:30.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:35.004 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:35.034 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:40.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:40.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:45.013 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:45.048 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:50.004 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:50.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:55.009 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:54:55.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:00.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:00.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:05.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:05.042 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:10.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:10.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:15.010 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:15.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:20.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:20.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:25.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:25.035 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:30.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:30.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:35.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:35.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:40.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:40.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:45.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:45.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:50.003 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:50.035 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:55.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:55:55.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:00.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:00.048 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:05.013 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:05.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:10.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:10.048 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:15.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:15.032 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:17.787 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.14:56:17.819 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.14:56:17.852 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.14:56:17.884 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.14:56:17.909 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.14:56:18.103 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.14:56:18.415 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.14:56:18.572 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.14:56:18.588 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.14:56:18.590 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.14:56:18.592 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.14:56:18.592 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.14:56:38.439 [main            ] INFO  RaffleActivityControllerTest - Starting RaffleActivityControllerTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 32260 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-05-11.14:56:38.440 [main            ] INFO  RaffleActivityControllerTest - The following 1 profile is active: "dev"
+26-05-11.14:56:39.221 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-11.14:56:39.222 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-11.14:56:39.250 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+26-05-11.14:56:40.315 [main            ] INFO  Version                - Redisson 3.23.4
+26-05-11.14:56:40.607 [redisson-netty-2-6] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.14:56:42.879 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.14:56:46.202 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-05-11.14:56:46.310 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-05-11.14:56:46.511 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1b3bec6c:0/SimpleConnection@4ac0ed65 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 60792]
+26-05-11.14:56:47.316 [main            ] INFO  RaffleActivityControllerTest - Started RaffleActivityControllerTest in 9.212 seconds (JVM running for 9.859)
+26-05-11.14:56:47.508 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.14:56:48.096 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.14:56:48.151 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.14:56:49.619 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.14:56:49.762 [main            ] INFO  ActivityBaseActionChain - 活动责任链-基础信息【有效期、状态、库存(sku)】校验开始。sku:9011 activityId:100301
+26-05-11.14:56:49.763 [main            ] INFO  ActivitySkuStockActionChain - 活动责任链-商品库存处理【有效期、状态、库存(sku)】开始。sku:9011 activityId:100301
+26-05-11.14:56:49.840 [main            ] INFO  ActivitySkuStockActionChain - 活动责任链-商品库存处理【有效期、状态、库存(sku)】成功。sku:9011 activityId:100301
+26-05-11.14:56:50.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:50.015 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.14:56:50.050 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:50.156 [main            ] INFO  RaffleActivityController - 积分兑换商品，创建订单完成 userId:xiaofuge sku:9011 outBusinessNo:007322228186
+26-05-11.14:56:50.158 [main            ] INFO  CreditAdjustService    - 增加账户积分额度开始 userId:xiaofuge tradeName:CONVERT_SKU amount:-1.68
+26-05-11.14:56:50.420 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.14:56:50.744 [main            ] INFO  EventPublisher         - 发送MQ消息 topic:credit_adjust_success message:{"data":{"amount":-1.68,"orderId":"844937906791","outBusinessNo":"007322228186","userId":"xiaofuge"},"id":"55874997972","timestamp":1778482610160}
+26-05-11.14:56:50.783 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  CreditAdjustSuccessCustomer - 监听积分账户调整成功消息，进行交易商品发货 topic: credit_adjust_success message: {"data":{"amount":-1.68,"orderId":"844937906791","outBusinessNo":"007322228186","userId":"xiaofuge"},"id":"55874997972","timestamp":1778482610160}
+26-05-11.14:56:50.819 [main            ] INFO  CreditRepository       - 调整账户积分记录，发送MQ消息完成 userId: xiaofuge orderId:844937906791 topic: credit_adjust_success
+26-05-11.14:56:50.819 [main            ] INFO  CreditAdjustService    - 增加账户积分额度完成 userId:xiaofuge orderId:844937906791
+26-05-11.14:56:50.819 [main            ] INFO  RaffleActivityController - 积分兑换商品，支付订单完成  userId:xiaofuge sku:9011 orderId:844937906791
+26-05-11.14:56:50.820 [main            ] INFO  RaffleActivityControllerTest - 请求参数：SkuProductShopCartRequestDTO(userId=xiaofuge, sku=9011)
+26-05-11.14:56:50.825 [main            ] INFO  RaffleActivityControllerTest - 测试结果：{"code":"0000","data":true,"info":"成功"}
+26-05-11.14:56:55.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:55.044 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:56:55.078 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存 sku:9011 activityId:100301
+26-05-11.14:57:00.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:00.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:05.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:05.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:10.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:10.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:15.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:15.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:20.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:20.043 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:25.015 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:25.048 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:30.014 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:30.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:35.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:35.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:40.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:40.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:45.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:45.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:50.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:50.046 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:55.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:57:55.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:00.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:00.049 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:05.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:05.036 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:10.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:10.052 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:15.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:15.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:20.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:20.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:25.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:25.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:30.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:30.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:35.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:35.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:40.008 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:40.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:45.012 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:45.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:50.003 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:50.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:55.010 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:58:55.043 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:00.015 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:00.053 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:05.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:05.034 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:10.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:10.040 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:15.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:15.041 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:20.011 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:20.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:25.001 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:25.040 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:30.005 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:30.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:35.002 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:35.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:40.006 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:40.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:45.010 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:45.044 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:50.012 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:50.050 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:55.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.14:59:55.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:00.008 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:00.044 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:05.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:05.036 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:10.005 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:10.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:15.002 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:15.041 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:20.010 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:20.044 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:25.010 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:25.045 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:30.013 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:30.054 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:35.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:35.037 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:40.001 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:40.039 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:45.014 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:45.047 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:50.006 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:50.042 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:55.004 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:00:55.038 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:00.000 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:00.035 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:05.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:05.050 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:10.004 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:10.039 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:15.015 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:15.049 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:19.729 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:01:19.764 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:01:19.795 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:01:19.811 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:01:19.826 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:01:20.011 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:20.045 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:01:20.136 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:01:20.230 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:01:20.231 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:01:20.237 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:01:20.238 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:01:20.238 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:01:20.238 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:04:30.924 [main            ] INFO  RaffleActivityControllerTest - Starting RaffleActivityControllerTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 21224 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-05-11.15:04:30.924 [main            ] INFO  RaffleActivityControllerTest - The following 1 profile is active: "dev"
+26-05-11.15:04:31.784 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-11.15:04:31.787 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-11.15:04:31.822 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+26-05-11.15:04:32.950 [main            ] INFO  Version                - Redisson 3.23.4
+26-05-11.15:04:33.292 [redisson-netty-2-6] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.15:04:33.549 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.15:04:36.820 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-05-11.15:04:36.907 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-05-11.15:04:37.118 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1b3bec6c:0/SimpleConnection@4ac0ed65 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 60123]
+26-05-11.15:04:37.955 [main            ] INFO  RaffleActivityControllerTest - Started RaffleActivityControllerTest in 7.404 seconds (JVM running for 8.069)
+26-05-11.15:04:38.159 [main            ] INFO  RaffleActivityController - 查询用户积分值开始 userId:xiaofuge
+26-05-11.15:04:38.182 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.15:04:39.796 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.15:04:39.856 [main            ] INFO  RaffleActivityController - 查询用户积分值完成 userId:xiaofuge adjustAmount:79.13
+26-05-11.15:04:39.857 [main            ] INFO  RaffleActivityControllerTest - 请求参数：xiaofuge
+26-05-11.15:04:40.007 [scheduling-1    ] INFO  UpdateAwardStockJob    - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:04:40.016 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.15:04:40.044 [main            ] INFO  RaffleActivityControllerTest - 测试结果：{"code":"0000","data":79.13,"info":"成功"}
+26-05-11.15:04:40.066 [scheduling-1    ] INFO  updateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+26-05-11.15:04:40.088 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:04:40.121 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:04:40.154 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:04:40.185 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:04:40.523 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:04:40.668 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:04:40.823 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:04:41.007 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:04:41.010 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:04:41.010 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:04:41.010 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:04:41.010 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:06:45.001 [main            ] INFO  RaffleActivityControllerTest - Starting RaffleActivityControllerTest using Java 1.8.0_202 on DESKTOP-RNEPHEV with PID 40332 (started by hp-pc in E:\project_java\big-market\big-market-app)
+26-05-11.15:06:45.002 [main            ] INFO  RaffleActivityControllerTest - The following 1 profile is active: "dev"
+26-05-11.15:06:45.783 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-11.15:06:45.784 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-11.15:06:45.811 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+26-05-11.15:06:46.784 [main            ] INFO  Version                - Redisson 3.23.4
+26-05-11.15:06:47.059 [redisson-netty-2-6] INFO  MasterPubSubConnectionPool - 1 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.15:06:47.293 [redisson-netty-2-13] INFO  MasterConnectionPool   - 5 connections initialized for 36.151.145.207/36.151.145.207:16379
+26-05-11.15:06:49.862 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-05-11.15:06:49.942 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [36.151.145.207:5672]
+26-05-11.15:06:50.137 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1b3bec6c:0/SimpleConnection@4ac0ed65 [delegate=amqp://admin@36.151.145.207:5672/, localPort= 57676]
+26-05-11.15:06:50.999 [main            ] INFO  RaffleActivityControllerTest - Started RaffleActivityControllerTest in 6.308 seconds (JVM running for 6.881)
+26-05-11.15:06:51.198 [main            ] INFO  RaffleActivityController - 查询sku商品集合开始 activityId:100301
+26-05-11.15:06:51.227 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+26-05-11.15:06:52.830 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+26-05-11.15:06:53.040 [main            ] INFO  RaffleActivityController - 查询sku商品集合完成 activityId:100301 skuProductResponseDTOS:[{"activityCount":{"dayCount":100,"monthCount":100,"totalCount":100},"activityCountId":11101,"productAmount":1.68,"sku":9011,"stockCount":100000,"stockCountSurplus":99887}]
+26-05-11.15:06:53.041 [main            ] INFO  RaffleActivityControllerTest - 请求参数：100301
+26-05-11.15:06:53.042 [main            ] INFO  RaffleActivityControllerTest - 测试结果：{"code":"0000","data":[{"activityCount":{"dayCount":100,"monthCount":100,"totalCount":100},"activityCountId":11101,"productAmount":1.68,"sku":9011,"stockCount":100000,"stockCountSurplus":99887}],"info":"成功"}
+26-05-11.15:06:53.085 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:06:53.119 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:06:53.152 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:06:53.185 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-11.15:06:53.540 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:06:53.709 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:06:53.877 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:06:54.048 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-11.15:06:54.051 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:06:54.051 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:06:54.051 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-11.15:06:54.051 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped

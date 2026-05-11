@@ -6,6 +6,7 @@ import cn.gzy.domain.activity.model.entity.*;
 import cn.gzy.domain.activity.model.valobj.ActivitySkuStockKeyVO;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -59,6 +60,11 @@ public interface IActivityRepository {
 
     void updateOrder(DeliveryOrderEntity deliveryOrderEntity);
 
+    UnpaidActivityOrderEntity queryUnpaidActivityOrder(SkuRechargeEntity skuRechargeEntity);
 
+    List<SkuProductEntity> querySkuProductEntityListByActivityId(Long activityId);
+
+
+    BigDecimal queryUserCreditAccountAmount(String userId);
 
 }

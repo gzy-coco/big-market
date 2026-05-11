@@ -4,6 +4,7 @@ package cn.gzy.domain.activity.service;
 import cn.gzy.domain.activity.model.entity.ActivityAccountEntity;
 import cn.gzy.domain.activity.model.entity.DeliveryOrderEntity;
 import cn.gzy.domain.activity.model.entity.SkuRechargeEntity;
+import cn.gzy.domain.activity.model.entity.UnpaidActivityOrderEntity;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -21,7 +22,7 @@ public interface IRaffleActivityAccountQuotaService {
      * @param skuRechargeEntity 活动商品充值实体对象
      * @return 活动ID
      */
-    String createSkuRechargeOrder(SkuRechargeEntity skuRechargeEntity);
+    UnpaidActivityOrderEntity createSkuRechargeOrder(SkuRechargeEntity skuRechargeEntity);
 
     /**
      * 查询活动账户 - 日，参与次数

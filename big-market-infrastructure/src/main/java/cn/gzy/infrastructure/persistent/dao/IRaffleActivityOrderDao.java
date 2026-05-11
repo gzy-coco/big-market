@@ -29,4 +29,7 @@ public interface IRaffleActivityOrderDao {
     @DBRouter
     int updateOrderCompleted(RaffleActivityOrder raffleActivityOrderReq);
 
+    @DBRouter
+    RaffleActivityOrder queryUnpaidActivityOrder(RaffleActivityOrder raffleActivityOrderReq);
+
 }

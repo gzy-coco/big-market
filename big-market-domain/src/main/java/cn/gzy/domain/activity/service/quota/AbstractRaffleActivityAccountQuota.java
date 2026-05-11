@@ -2,6 +2,7 @@ package cn.gzy.domain.activity.service.quota;
 
 import cn.gzy.domain.activity.model.aggregate.CreateQuotaOrderAggregate;
 import cn.gzy.domain.activity.model.entity.*;
+import cn.gzy.domain.activity.model.valobj.OrderTradeTypeVO;
 import cn.gzy.domain.activity.repository.IActivityRepository;
 import cn.gzy.domain.activity.service.IRaffleActivityAccountQuotaService;
 import cn.gzy.domain.activity.service.quota.policy.ITradePolicy;
@@ -12,6 +13,7 @@ import cn.gzy.types.exception.AppException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 /**
@@ -32,7 +34,7 @@ public abstract class AbstractRaffleActivityAccountQuota extends RaffleActivityA
 
 
     @Override
-    public String createSkuRechargeOrder(SkuRechargeEntity skuRechargeEntity){
+    public UnpaidActivityOrderEntity createSkuRechargeOrder(SkuRechargeEntity skuRechargeEntity){
         // 1. 参数校验
         String userId = skuRechargeEntity.getUserId();
         Long sku = skuRechargeEntity.getSku();
@@ -40,7 +42,9 @@ public abstract class AbstractRaffleActivityAccountQuota extends RaffleActivityA
         if (null == sku || StringUtils.isBlank(userId) || StringUtils.isBlank(outBusinessNo)) {
             throw new AppException(ResponseCode.ILLEGAL_PARAMETER.getCode(), ResponseCode.ILLEGAL_PARAMETER.getInfo());
         }
-
+        // 2. 查询未支付订单「一个月以内的未支付订单」
+        UnpaidActivityOrderEntity unpaidActivityOrder = activityRepository.queryUnpaidActivityOrder(skuRechargeEntity);
+        if(unpaidActivityOrder != null) return unpaidActivityOrder;
         // 2. 查询基础信息
         // 2.1 通过sku查询活动信息
         ActivitySkuEntity activitySkuEntity = queryActivitySku(sku);
@@ -48,6 +52,15 @@ public abstract class AbstractRaffleActivityAccountQuota extends RaffleActivityA
         ActivityEntity activityEntity = queryRaffleActivityByActivityId(activitySkuEntity.getActivityId());
         // 2.3 查询次数信息（用户在活动上可参与的次数）
         ActivityCountEntity activityCountEntity = queryRaffleActivityCountByActivityCountId(activitySkuEntity.getActivityCountId());
+
+
+        // 4. 账户额度 【交易属性的兑换，需要校验额度账户】
+        if (OrderTradeTypeVO.credit_pay_trade.equals(skuRechargeEntity.getOrderTradeType())){
+            BigDecimal availableAmount = activityRepository.queryUserCreditAccountAmount(userId);
+            if (availableAmount.compareTo(activitySkuEntity.getProductAmount()) < 0) {
+                throw new AppException(ResponseCode.USER_CREDIT_ACCOUNT_NO_AVAILABLE_AMOUNT.getCode(), ResponseCode.USER_CREDIT_ACCOUNT_NO_AVAILABLE_AMOUNT.getInfo());
+            }
+        }
 
         // 3. 活动动作规则校验 todo 后续处理规则过滤流程，暂时也不处理责任链结果
         IActionChain actionChain = defaultActivityChainFactory.openActionChain();
@@ -61,7 +74,12 @@ public abstract class AbstractRaffleActivityAccountQuota extends RaffleActivityA
         tradePolicy.trade(createOrderAggregate);
 
         // 6. 返回单号
-        return createOrderAggregate.getActivityOrderEntity().getOrderId();
+        return UnpaidActivityOrderEntity.builder()
+                .orderId(createOrderAggregate.getActivityOrderEntity().getOrderId())
+                .payAmount(createOrderAggregate.getActivityOrderEntity().getPayAmount())
+                .outBusinessNo(createOrderAggregate.getActivityOrderEntity().getOutBusinessNo())
+                .userId(createOrderAggregate.getUserId())
+                .build();
 
     }
 
