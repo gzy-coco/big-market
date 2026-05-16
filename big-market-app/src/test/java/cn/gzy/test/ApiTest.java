@@ -14,6 +14,7 @@ public class ApiTest {
     @Test
     public void test() {
         log.info("测试完成");
+        System.out.println( 0.2 % 1);
     }
 
 }

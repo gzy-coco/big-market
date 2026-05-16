@@ -53,11 +53,15 @@ public class SendMessageTaskJob {
                             // 开启线程发送，提高发送效率。配置的线程池策略为 CallerRunsPolicy，在 ThreadPoolConfig 配置中有4个策略，面试中容易对比提问。可以检索下相关资料。
                             executor.execute(() -> {
                                 try {
+                                    dbRouter.setDBKey(finalDbIdx);
+                                    dbRouter.setTBKey(0);
                                     taskService.sendMessage(taskEntity);
                                     taskService.updateTaskSendMessageCompleted(taskEntity.getUserId(), taskEntity.getMessageId());
                                 } catch (Exception e) {
-                                    log.error("定时任务，发送MQ消息失败 userId: {} topic: {}", taskEntity.getUserId(), taskEntity.getTopic());
+                                    log.error("定时任务，发送MQ消息失败 userId: {} topic: {}", taskEntity.getUserId(), taskEntity.getTopic(), e);
                                     taskService.updateTaskSendMessageFail(taskEntity.getUserId(), taskEntity.getMessageId());
+                                } finally {
+                                    dbRouter.clear();
                                 }
                             });
                         }

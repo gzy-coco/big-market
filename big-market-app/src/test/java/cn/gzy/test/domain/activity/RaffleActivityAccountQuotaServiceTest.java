@@ -40,6 +40,11 @@ public class RaffleActivityAccountQuotaServiceTest {
     }
 
     @Test
+    public void setUp1() {
+        log.info("装配活动：{}", activityArmory.assembleActivitySku(9011L));
+    }
+
+    @Test
     public void test_createSkuRechargeOrder_duplicate() {
         SkuRechargeEntity skuRechargeEntity = new SkuRechargeEntity();
         skuRechargeEntity.setUserId("xiaofuge");

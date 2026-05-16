@@ -42,9 +42,14 @@ public abstract class AbstractRaffleActivityAccountQuota extends RaffleActivityA
         if (null == sku || StringUtils.isBlank(userId) || StringUtils.isBlank(outBusinessNo)) {
             throw new AppException(ResponseCode.ILLEGAL_PARAMETER.getCode(), ResponseCode.ILLEGAL_PARAMETER.getInfo());
         }
-        // 2. 查询未支付订单「一个月以内的未支付订单」
-        UnpaidActivityOrderEntity unpaidActivityOrder = activityRepository.queryUnpaidActivityOrder(skuRechargeEntity);
-        if(unpaidActivityOrder != null) return unpaidActivityOrder;
+
+
+        // 2. 查询未支付订单「一个月以内的未支付订单」& 支付类型查询，非支付的走兑换
+        if (OrderTradeTypeVO.credit_pay_trade.equals(skuRechargeEntity.getOrderTradeType())){
+            UnpaidActivityOrderEntity unpaidCreditOrder =  activityRepository.queryUnpaidActivityOrder(skuRechargeEntity);
+            if (null != unpaidCreditOrder) return unpaidCreditOrder;
+        }
+
         // 2. 查询基础信息
         // 2.1 通过sku查询活动信息
         ActivitySkuEntity activitySkuEntity = queryActivitySku(sku);
@@ -84,8 +89,5 @@ public abstract class AbstractRaffleActivityAccountQuota extends RaffleActivityA
     }
 
     protected abstract CreateQuotaOrderAggregate buildOrderAggregate(SkuRechargeEntity skuRechargeEntity, ActivitySkuEntity activitySkuEntity, ActivityEntity activityEntity, ActivityCountEntity activityCountEntity);
-
-
-
 
 }
