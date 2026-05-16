@@ -10,7 +10,7 @@ import cn.gzy.infrastructure.persistent.dao.*;
 import cn.gzy.infrastructure.persistent.po.*;
 
 import cn.gzy.infrastructure.persistent.redis.IRedisService;
-//import cn.gzy.types.common.Constants;
+
 import cn.gzy.types.common.Constants;
 import cn.gzy.types.exception.AppException;
 import lombok.extern.slf4j.Slf4j;
@@ -195,8 +195,9 @@ public class StrategyRepository implements IStrategyRepository {
                     .ruleLimitValue(RuleLogicCheckTypeVO.valueOf(ruleTreeNodeLine.getRuleLimitValue()))
                     .build();
 
-            List<RuleTreeNodeLineVO> ruleTreeNodeLineVOList = ruleTreeNodeLineMap.computeIfAbsent(ruleTreeNodeLine.getRuleNodeFrom(), k -> new ArrayList<>());
-            ruleTreeNodeLineVOList.add(ruleTreeNodeLineVO);
+            ruleTreeNodeLineMap.
+                    computeIfAbsent(ruleTreeNodeLine.getRuleNodeFrom(), k -> new ArrayList<>())
+                    .add(ruleTreeNodeLineVO);
         }
 
         // 2. tree node 转换为Map结构
