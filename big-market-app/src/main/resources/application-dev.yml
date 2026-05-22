@@ -17,7 +17,7 @@ app:
 # Spring 配置；rabbitmq
 spring:
   rabbitmq:
-    addresses: 36.151.145.207
+    addresses: 117.72.106.89
     port: 5672
     username: admin
     password: ZN0611228gzy
@@ -54,7 +54,7 @@ mini-db-router:
       list: db01,db02
       db00:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://36.151.145.207:13306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+        url: jdbc:mysql://117.72.106.89:13306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
         password: ZN0611228gzy
         type-class-name: com.zaxxer.hikari.HikariDataSource
@@ -69,7 +69,7 @@ mini-db-router:
           connection-test-query: SELECT 1
       db01:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://36.151.145.207:13306/big_market_01?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+        url: jdbc:mysql://117.72.106.89:13306/big_market_01?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
         password: ZN0611228gzy
         type-class-name: com.zaxxer.hikari.HikariDataSource
@@ -84,7 +84,7 @@ mini-db-router:
           connection-test-query: SELECT 1
       db02:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://36.151.145.207:13306/big_market_02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+        url: jdbc:mysql://117.72.106.89:13306/big_market_02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
         password: ZN0611228gzy
         type-class-name: com.zaxxer.hikari.HikariDataSource
@@ -106,7 +106,7 @@ mybatis:
 redis:
   sdk:
     config:
-      host: 36.151.145.207
+      host: 117.72.106.89
       port: 16379
       password: ZN0611228gzy
       pool-size: 10
@@ -124,7 +124,7 @@ dubbo:
     version: 1.0
   registry:
     id: nacos-registry
-    address: nacos://36.151.145.207:8848
+    address: nacos://117.72.106.89:8848
   protocol:
     name: dubbo
     port: -1
@@ -134,7 +134,7 @@ dubbo:
 zookeeper:
   sdk:
     config:
-      connect-string: 36.151.145.207:2181
+      connect-string: 117.72.106.89:2181
       base-sleep-time-ms: 1000
       max-retries: 3
       session-timeout-ms: 18000

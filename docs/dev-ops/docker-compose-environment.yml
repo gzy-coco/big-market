@@ -178,6 +178,7 @@ services:
     volumes:
       - ./canal-adapter/application.yml:/opt/canal-adapter/conf/application.yml
       - ./canal-adapter/es7:/opt/canal-adapter/conf/es7
+      - ./canal-adapter/bootstrap.yml:/opt/canal-adapter/conf/bootstrap.yml
     depends_on:
       - canal-server
     networks:
