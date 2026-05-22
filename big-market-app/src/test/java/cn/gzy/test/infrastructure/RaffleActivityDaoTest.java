@@ -1,7 +1,7 @@
 package cn.gzy.test.infrastructure;
 
-import cn.gzy.infrastructure.persistent.dao.IRaffleActivityDao;
-import cn.gzy.infrastructure.persistent.po.RaffleActivity;
+import cn.gzy.infrastructure.dao.IRaffleActivityDao;
+import cn.gzy.infrastructure.dao.po.RaffleActivity;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

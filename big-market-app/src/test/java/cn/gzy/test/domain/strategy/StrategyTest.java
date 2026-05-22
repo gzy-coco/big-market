@@ -1,9 +1,7 @@
 package cn.gzy.test.domain.strategy;
 
-import cn.gzy.domain.strategy.service.armory.IStrategyArmory;
-import cn.gzy.domain.strategy.service.armory.IStrategyDispatch;
 import cn.gzy.domain.strategy.service.armory.StrategyArmoryDispatch;
-import cn.gzy.infrastructure.persistent.redis.IRedisService;
+import cn.gzy.infrastructure.redis.IRedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

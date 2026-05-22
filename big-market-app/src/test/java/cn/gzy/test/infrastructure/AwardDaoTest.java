@@ -1,7 +1,7 @@
 package cn.gzy.test.infrastructure;
 
-import cn.gzy.infrastructure.persistent.dao.IAwardDao;
-import cn.gzy.infrastructure.persistent.po.Award;
+import cn.gzy.infrastructure.dao.IAwardDao;
+import cn.gzy.infrastructure.dao.po.Award;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
