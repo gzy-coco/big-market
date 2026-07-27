@@ -2,12 +2,17 @@ package cn.gzy.domain.activity.service;
 
 import cn.gzy.domain.activity.model.valobj.ActivitySkuStockKeyVO;
 
+import java.util.List;
+
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
  * @description 活动sku库存处理接口
  * @create 2024-03-30 09:55
  */
 public interface IRaffleActivitySkuStockService {
+
+
+
 
     /**
      * 获取活动sku库存消耗队列
@@ -16,6 +21,19 @@ public interface IRaffleActivitySkuStockService {
      * @throws InterruptedException 异常
      */
     ActivitySkuStockKeyVO takeQueueValue() throws InterruptedException;
+
+    /**
+     * 获取活动sku库存消耗队列
+     *
+     * @return 奖品库存Key信息
+     * @throws InterruptedException 异常
+     */
+    ActivitySkuStockKeyVO takeQueueValue(Long sku) throws InterruptedException;
+
+    /**
+     * 清空队列
+     */
+    void clearQueueValue(Long sku);
 
     /**
      * 清空队列
@@ -35,5 +53,8 @@ public interface IRaffleActivitySkuStockService {
      * @param sku 活动商品
      */
     void clearActivitySkuStock(Long sku);
+
+
+    List<Long> querySkuList();
 
 }

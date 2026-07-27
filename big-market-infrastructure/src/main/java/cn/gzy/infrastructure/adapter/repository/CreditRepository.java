@@ -98,9 +98,9 @@ public class CreditRepository implements ICreditRepository {
                         BigDecimal availableAmount = userCreditAccountReq.getAvailableAmount();
                         if (availableAmount.compareTo(BigDecimal.ZERO) >= 0) {
                             userCreditAccountDao.updateAddAmount(userCreditAccountReq);
-                        } else {
+                        } else {  // 小于0， 就是扣减用户积分，应该是用户用积分兑换商品了
                             int subtractionCount = userCreditAccountDao.updateSubtractionAmount(userCreditAccountReq);
-                            if (1 != subtractionCount) {
+                            if (1 != subtractionCount) {  // 更新数量不足1条，扣减失败，用户积分不足
                                 status.setRollbackOnly();
                                 throw new AppException(ResponseCode.USER_CREDIT_ACCOUNT_NO_AVAILABLE_AMOUNT.getCode(), ResponseCode.USER_CREDIT_ACCOUNT_NO_AVAILABLE_AMOUNT.getInfo());
                             }

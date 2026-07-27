@@ -34,6 +34,11 @@ public interface IActivityRepository {
 
     void activitySkuStockConsumeSendQueue(ActivitySkuStockKeyVO activitySkuStockKeyVO);
 
+    ActivitySkuStockKeyVO takeQueueValue(Long sku);
+
+    void clearQueueValue(Long sku);
+
+
     ActivitySkuStockKeyVO takeQueueValue();
 
     void clearQueueValue();
@@ -66,5 +71,8 @@ public interface IActivityRepository {
 
 
     BigDecimal queryUserCreditAccountAmount(String userId);
+
+
+    List<Long> querySkuList();
 
 }
