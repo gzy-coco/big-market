@@ -8,6 +8,9 @@ import org.apache.curator.framework.recipes.cache.CuratorCache;
 import org.springframework.aop.framework.AopProxyUtils;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Configuration;
 
@@ -137,5 +140,6 @@ public class DCCValueBeanFactory implements BeanPostProcessor {
         }
         return bean;
     }
+
 
 }
