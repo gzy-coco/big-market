@@ -1,0 +1,41 @@
+2026-08-29 11:59:12,545 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-08-29 11:59:12,556 INFO o.a.j.JMeter: Loading user properties from: E:\AppData\apache-jmeter-5.6.3\bin\user.properties
+2026-08-29 11:59:12,556 INFO o.a.j.JMeter: Loading system properties from: E:\AppData\apache-jmeter-5.6.3\bin\system.properties
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: Version 5.6.3
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: java.version=1.8.0_202
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: os.name=Windows 10
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: os.arch=amd64
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: os.version=10.0
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: file.encoding=GBK
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: java.awt.headless=null
+2026-08-29 11:59:12,563 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-08-29 11:59:12,564 INFO o.a.j.JMeter: Available Processors =20
+2026-08-29 11:59:12,568 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-08-29 11:59:12,568 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-08-29 11:59:12,568 INFO o.a.j.JMeter: JMeterHome=E:\AppData\apache-jmeter-5.6.3
+2026-08-29 11:59:12,568 INFO o.a.j.JMeter: user.dir  =E:\project_java\big-market
+2026-08-29 11:59:12,568 INFO o.a.j.JMeter: PWD       =E:\project_java\big-market
+2026-08-29 11:59:12,570 INFO o.a.j.JMeter: IP: 100.126.147.108 Name: DESKTOP-RNEPHEV FullName: desktop-rnephev.tail24570e.ts.net.
+2026-08-29 11:59:12,587 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2026-08-29 11:59:12,763 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2026-08-29 12:00:58,624 INFO o.a.j.s.FileServer: Default base='E:\project_java\big-market'
+2026-08-29 12:01:02,353 INFO o.a.j.g.a.t.TemplateManager: Reading templates from: E:\AppData\apache-jmeter-5.6.3\bin\templates\templates.xml
+2026-08-29 12:01:20,969 INFO o.a.j.g.a.Load: Loading file: C:\Users\hp-pc\Desktop\HTTP Request.jmx
+2026-08-29 12:01:20,969 INFO o.a.j.s.FileServer: Set new base='C:\Users\hp-pc\Desktop'
+2026-08-29 12:01:21,106 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-08-29 12:01:21,123 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-08-29 12:01:21,124 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-08-29 12:01:21,127 INFO o.a.j.s.SaveService: Loading file: C:\Users\hp-pc\Desktop\HTTP Request.jmx
+2026-08-29 12:01:21,152 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-08-29 12:01:21,152 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-08-29 12:01:21,152 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-08-29 12:01:21,152 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-08-29 12:01:21,152 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-08-29 12:01:21,152 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-08-29 12:01:21,289 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-08-29 12:01:21,291 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-08-29 12:01:21,291 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-08-29 12:01:21,291 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-08-29 12:01:21,539 INFO o.a.j.s.FileServer: Set new base='C:\Users\hp-pc\Desktop'

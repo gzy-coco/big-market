@@ -1,0 +1,27 @@
+2026-08-26 21:49:10 [com.xxl.job.core.thread.JobThread#run]-[133]-[xxl-job, JobThread-2-1787751579537] <br>----------- xxl-job job execute start -----------<br>----------- Param:
+2026-08-26 21:50:46 [com.xxl.job.core.thread.JobThread#run]-[204]-[xxl-job, JobThread-2-1787751579537] <br>----------- JobThread Exception:java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor67.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.xxl.job.core.handler.impl.MethodJobHandler.execute(MethodJobHandler.java:31)
+	at com.xxl.job.core.thread.JobThread.run(JobThread.java:166)
+Caused by: java.lang.IllegalMonitorStateException: attempt to unlock lock, not locked by current thread by node id: 88be79fd-d60c-4f03-8706-6695e41ec724 thread-id: 190
+	at org.redisson.RedissonBaseLock.lambda$unlockAsync0$2(RedissonBaseLock.java:290)
+	at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:822)
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire$$$capture(CompletableFuture.java:797)
+	at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java)
+	at --- Async.Stack.Trace --- (captured by IntelliJ IDEA debugger)
+	at java.util.concurrent.CompletableFuture$UniHandle.<init>(CompletableFuture.java:792)
+	at java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:835)
+	at java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2155)
+	at org.redisson.misc.CompletableFutureWrapper.handle(CompletableFutureWrapper.java:208)
+	at org.redisson.RedissonBaseLock.unlockAsync0(RedissonBaseLock.java:280)
+	at org.redisson.RedissonBaseLock.lambda$unlockAsync$1(RedissonBaseLock.java:275)
+	at org.redisson.connection.ServiceManager.execute(ServiceManager.java:408)
+	at org.redisson.connection.ServiceManager.execute(ServiceManager.java:403)
+	at org.redisson.RedissonBaseLock.unlockAsync(RedissonBaseLock.java:275)
+	at org.redisson.RedissonBaseLock.unlock(RedissonBaseLock.java:304)
+	at cn.gzy.trigger.job.SendMessageTaskJob.exec_db01(SendMessageTaskJob.java:74)
+	... 5 more
+<br>----------- xxl-job job execute end(error) -----------
+2026-08-26 21:50:46 [com.xxl.job.core.thread.TriggerCallbackThread#callbackLog]-[197]-[xxl-job, executor TriggerCallbackThread] <br>----------- xxl-job job callback finish.

@@ -1,0 +1,21 @@
+2026-08-26 21:50:47 [com.xxl.job.core.thread.JobThread#run]-[133]-[xxl-job, JobThread-3-1787751579535] <br>----------- xxl-job job execute start -----------<br>----------- Param:
+2026-08-26 21:50:47 [com.xxl.job.core.thread.JobThread#run]-[194]-[xxl-job, JobThread-3-1787751579535] <br>----------- JobThread toStop, stopReason:web container destroy and kill the job.
+2026-08-26 21:50:47 [com.xxl.job.core.thread.JobThread#run]-[204]-[xxl-job, JobThread-3-1787751579535] <br>----------- JobThread Exception:java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor66.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.xxl.job.core.handler.impl.MethodJobHandler.execute(MethodJobHandler.java:31)
+	at com.xxl.job.core.thread.JobThread.run(JobThread.java:166)
+Caused by: org.redisson.client.RedisException: java.lang.InterruptedException
+	at org.redisson.command.CommandAsyncService.get(CommandAsyncService.java:114)
+	at org.redisson.RedissonObject.get(RedissonObject.java:90)
+	at org.redisson.RedissonBaseLock.unlock(RedissonBaseLock.java:304)
+	at cn.gzy.trigger.job.SendMessageTaskJob.exec_db02(SendMessageTaskJob.java:114)
+	... 5 more
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:347)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at org.redisson.command.CommandAsyncService.get(CommandAsyncService.java:110)
+	... 8 more
+<br>----------- xxl-job job execute end(error) -----------
+2026-08-26 21:50:47 [com.xxl.job.core.thread.TriggerCallbackThread#callbackLog]-[197]-[xxl-job, executor TriggerCallbackThread] <br>----------- xxl-job job callback finish.
