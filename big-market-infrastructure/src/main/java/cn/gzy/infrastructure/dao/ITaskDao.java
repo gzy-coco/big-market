@@ -18,6 +18,9 @@ public interface ITaskDao {
 
     void insert(Task task);
 
+    /** 批量写入本地消息任务【10连抽】 */
+    void insertBatch(List<Task> tasks);
+
     @DBRouter
     void updateTaskSendMessageCompleted(Task task);
 

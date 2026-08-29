@@ -1,6 +1,7 @@
 package cn.gzy.domain.activity.model.entity;
 
 
+import cn.gzy.domain.activity.model.valobj.RaffleTypeVO;
 import lombok.Data;
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -17,4 +18,6 @@ public class PartakeRaffleActivityEntity {
      * 活动ID
      */
     private Long activityId;
+
+    private RaffleTypeVO raffleType;
 }

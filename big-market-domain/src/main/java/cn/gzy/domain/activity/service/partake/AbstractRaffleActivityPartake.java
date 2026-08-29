@@ -5,6 +5,7 @@ import cn.gzy.domain.activity.model.entity.ActivityEntity;
 import cn.gzy.domain.activity.model.entity.PartakeRaffleActivityEntity;
 import cn.gzy.domain.activity.model.entity.UserRaffleOrderEntity;
 import cn.gzy.domain.activity.model.valobj.ActivityStateVO;
+import cn.gzy.domain.activity.model.valobj.RaffleTypeVO;
 import cn.gzy.domain.activity.repository.IActivityRepository;
 import cn.gzy.domain.activity.service.IRaffleActivityPartakeService;
 import cn.gzy.types.enums.ResponseCode;
@@ -28,10 +29,11 @@ public abstract class AbstractRaffleActivityPartake implements IRaffleActivityPa
         this.activityRepository = activityRepository;
     }
     @Override
-    public UserRaffleOrderEntity createOrder(String userId,Long activityId){
+    public UserRaffleOrderEntity createOrder(String userId,Long activityId,String raffleType){
         PartakeRaffleActivityEntity partakeRaffleActivityEntity = new PartakeRaffleActivityEntity();
         partakeRaffleActivityEntity.setActivityId(activityId);
         partakeRaffleActivityEntity.setUserId(userId);
+        partakeRaffleActivityEntity.setRaffleType(RaffleTypeVO.fromCode(raffleType));
         return createOrder(partakeRaffleActivityEntity);
     }
 
@@ -60,11 +62,13 @@ public abstract class AbstractRaffleActivityPartake implements IRaffleActivityPa
             return userRaffleOrderEntity;
         }
         // 3. 额度账户过滤&返回账户构建对象
-        CreatePartakeOrderAggregate createPartakeOrderAggregate = this.doFilterAccount(userId, activityId, currentDate);
+        CreatePartakeOrderAggregate createPartakeOrderAggregate = this.doFilterAccount(userId, activityId, currentDate,partakeRaffleActivityEntity.getRaffleType());
 
         // 4. 构建订单
-        UserRaffleOrderEntity userRaffleOrder = this.buildUserRaffleOrder(userId, activityId, currentDate);
-
+        UserRaffleOrderEntity userRaffleOrder = this.buildUserRaffleOrder(userId, activityId, currentDate,partakeRaffleActivityEntity.getRaffleType());
+        // 给订单设置用户抽奖次数
+        userRaffleOrder.setBaseDayCount(createPartakeOrderAggregate.getActivityAccountDayEntity().getUsedCount());
+        userRaffleOrder.setBaseTotalCount(createPartakeOrderAggregate.getActivityAccountEntity().getUsedCount());
         // 5. 填充抽奖单实体对象
         createPartakeOrderAggregate.setUserRaffleOrderEntity(userRaffleOrder);
 
@@ -75,8 +79,8 @@ public abstract class AbstractRaffleActivityPartake implements IRaffleActivityPa
         return userRaffleOrder;
     }
 
-    protected abstract CreatePartakeOrderAggregate doFilterAccount(String userId, Long activityId, Date currentDate);
+    protected abstract CreatePartakeOrderAggregate doFilterAccount(String userId, Long activityId, Date currentDate,RaffleTypeVO raffleType);
 
-    protected abstract UserRaffleOrderEntity buildUserRaffleOrder(String userId, Long activityId, Date currentDate);
+    protected abstract UserRaffleOrderEntity buildUserRaffleOrder(String userId, Long activityId, Date currentDate,RaffleTypeVO raffleType);
 
 }

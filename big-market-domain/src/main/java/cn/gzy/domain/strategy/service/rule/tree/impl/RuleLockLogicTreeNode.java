@@ -24,7 +24,7 @@ public class RuleLockLogicTreeNode implements ILogicTreeNode {
     private IStrategyRepository strategyRepository;
 
     @Override
-    public DefaultTreeFactory.TreeActionEntity logic(Long strategyId, String userId, Integer awardId, String ruleValue, Date endDateTime) {
+    public DefaultTreeFactory.TreeActionEntity logic(Long strategyId, String userId, Integer awardId, String ruleValue, Date endDateTime, Integer todayUserRaffleCount) {
         log.info("规则过滤-次数锁 userId:{} strategyId:{} awardId:{}", userId, strategyId, awardId);
 
         long raffleCount = 0L;
@@ -35,7 +35,9 @@ public class RuleLockLogicTreeNode implements ILogicTreeNode {
         }
 
         // 查询用户抽奖次数 - 当天的；策略ID:活动ID 1:1 的配置，可以直接用 strategyId 查询。
-        Integer userRaffleCount = strategyRepository.queryTodayUserRaffleCount(userId,strategyId);
+        // 10连抽场景由编排层通过 Redis 原子自增下发本次抽奖的当日次数，直接使用避免多线程读库拿到相同次数；
+        // 单抽场景 todayUserRaffleCount 为 null，回退查询数据库。
+        Integer userRaffleCount = null != todayUserRaffleCount ? todayUserRaffleCount : strategyRepository.queryTodayUserRaffleCount(userId,strategyId);
 
         // 用户抽奖次数大于规则限定值，规则放行
         if (userRaffleCount >= raffleCount) {

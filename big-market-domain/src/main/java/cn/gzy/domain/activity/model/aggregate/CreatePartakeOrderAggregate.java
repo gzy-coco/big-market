@@ -29,6 +29,12 @@ public class CreatePartakeOrderAggregate {
      * 活动ID
      */
     private Long activityId;
+
+    /**
+     *  本次抽奖次数，单抽为1，十连抽为 10
+     */
+    private Integer count;
+
     /**
      * 账户总额度
      */

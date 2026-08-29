@@ -26,6 +26,7 @@ import cn.gzy.trigger.api.IRaffleActivityService;
 import cn.gzy.trigger.api.dto.*;
 import cn.gzy.types.annotations.DCCValue;
 import cn.gzy.types.annotations.RateLimiterAccessInterceptor;
+import cn.gzy.types.common.Constants;
 import cn.gzy.types.enums.ResponseCode;
 import cn.gzy.types.exception.AppException;
 import cn.gzy.types.model.Response;
@@ -44,6 +45,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 @Slf4j
@@ -79,6 +84,10 @@ public class RaffleActivityController implements IRaffleActivityService {
 
     @Resource
     private IRaffleActivitySkuProductService raffleActivitySkuProductService;
+
+    // 10连抽：并行执行抽奖的线程池
+    @Resource
+    private ThreadPoolExecutor threadPoolExecutor;
 
     // dcc 统一配置中心动态配置降级开关
     @DCCValue("degradeSwitch:close")
@@ -144,11 +153,11 @@ public class RaffleActivityController implements IRaffleActivityService {
      * permitsPerSecond：每秒的访问频次限制
      * blacklistCount：超过多少次都被限制了，还访问的，扔到黑名单里24小时
      */
-    @RateLimiterAccessInterceptor(key = "userId", fallbackMethod = "drawRateLimiterError", permitsPerSecond = 1.0d, blacklistCount = 1)
-    @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "150")
-    }, fallbackMethod = "drawHystrixError"
-    )
+//    @RateLimiterAccessInterceptor(key = "userId", fallbackMethod = "drawRateLimiterError", permitsPerSecond = 1.0d, blacklistCount = 1)
+//    @HystrixCommand(commandProperties = {
+//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "150")
+//    }, fallbackMethod = "drawHystrixError"
+//    )
     @RequestMapping(value = "draw", method = RequestMethod.POST)
     @Override
     public Response<ActivityDrawResponseDTO> draw(@RequestBody ActivityDrawRequestDTO request) {
@@ -168,12 +177,14 @@ public class RaffleActivityController implements IRaffleActivityService {
                 throw new AppException(ResponseCode.ILLEGAL_PARAMETER.getCode(), ResponseCode.ILLEGAL_PARAMETER.getInfo());
             }
             // 2. 参与活动 - 创建参与记录订单
-            UserRaffleOrderEntity userRaffleOrderEntity = raffleActivityPartakeService.createOrder(request.getUserId(),request.getActivityId());
+            UserRaffleOrderEntity userRaffleOrderEntity = raffleActivityPartakeService.createOrder(request.getUserId(),request.getActivityId(),Constants.SINGLE_RAFFLE);
             log.info("活动抽奖，创建订单 userId:{} activityId:{} orderId:{}", request.getUserId(), request.getActivityId(), userRaffleOrderEntity.getOrderId());
             RaffleAwardEntity raffleAwardEntity = raffleStrategy.performRaffle(RaffleFactorEntity.builder()
                             .userId(userRaffleOrderEntity.getUserId())
                             .strategyId(userRaffleOrderEntity.getStrategyId())
                             .endDateTime(userRaffleOrderEntity.getEndDateTime())
+                            .todayUserRaffleCount(userRaffleOrderEntity.getBaseDayCount())
+                            .totalUserRaffleCount(userRaffleOrderEntity.getBaseTotalCount())
                             .build());
 
             // 4. 存放结果 - 写入中奖记录
@@ -214,6 +225,140 @@ public class RaffleActivityController implements IRaffleActivityService {
                     .build();
         }
     }
+
+    /**
+     * 活动10连抽接口
+     * <p>
+     * curl --request POST \
+     * --url http://localhost:8091/api/v1/raffle/activity/draw_ten \
+     * --header 'content-type: application/json' \
+     * --data '{"userId":"xiaofuge","activityId": 100301}'
+     */
+    @RateLimiterAccessInterceptor(key = "userId", fallbackMethod = "drawRateLimiterError", permitsPerSecond = 1.0d, blacklistCount = 1)
+    @HystrixCommand(commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")
+    }, fallbackMethod = "drawHystrixError"
+    )
+    @RequestMapping(value = "draw_ten", method = RequestMethod.POST)
+    @Override
+    public Response<List<ActivityDrawTenResponseDTO>> drawTen(@RequestBody ActivityDrawTenRequestDTO request) {
+        try {
+            log.info("活动10连抽 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
+
+            // 0. 降级开关【open 开启、close 关闭】
+            if (StringUtils.isNotBlank(degradeSwitch) && "open".equals(degradeSwitch)) {
+                return Response.<List<ActivityDrawTenResponseDTO>>builder()
+                        .code(ResponseCode.DEGRADE_SWITCH.getCode())
+                        .info(ResponseCode.DEGRADE_SWITCH.getInfo())
+                        .build();
+            }
+
+            // 1. 参数校验
+            if (StringUtils.isBlank(request.getUserId()) || null == request.getActivityId()) {
+                throw new AppException(ResponseCode.ILLEGAL_PARAMETER.getCode(), ResponseCode.ILLEGAL_PARAMETER.getInfo());
+            }
+            final String userId = request.getUserId();
+            final Long activityId = request.getActivityId();
+
+            // 2. 批量参与记账：一次事务扣总/月/日各10并写1条订单（额度不足整单拒绝），返回扣减前基数
+            UserRaffleOrderEntity userRaffleOrderEntity = raffleActivityPartakeService.createOrder(request.getUserId(),request.getActivityId(),Constants.TEN_RAFFLE);
+
+            final Long strategyId = userRaffleOrderEntity.getStrategyId();
+            final Date endDateTime = userRaffleOrderEntity.getEndDateTime();
+            final String orderId = userRaffleOrderEntity.getOrderId();
+            final int baseDay = userRaffleOrderEntity.getBaseDayCount();
+            final long baseTotal = userRaffleOrderEntity.getBaseTotalCount();
+            log.info("活动10连抽，创建订单 userId:{} activityId:{} orderId:{}", userId, activityId, orderId);
+
+            // 3. 线程池并行抽10次；每抽的"日/累计次数"直接由创建订单时查得的DB基数 + 序号注入
+            //    - 次数在创建订单(单线程)时从DB查得 baseDay/baseTotal，第i抽注入 base+i+1，各不相同、无需查Redis、无锁冲突
+            //    - 日次数给 rule_lock；累计次数给保底责任链 rule_guaranteed
+            //    - 次数用DB真值而非Redis自增：次数要求强准确(不多不少)，失败也无需回滚Redis
+            List<Callable<RaffleAwardEntity>> tasks = new ArrayList<>(10);
+            for (int i = 0; i < 10; i++) {
+                final int index = i;
+                tasks.add(() -> {
+                    int daySeq = baseDay + index + 1;
+                    long totalSeq = baseTotal + index + 1;
+                    return raffleStrategy.performRaffle(RaffleFactorEntity.builder()
+                            .userId(userId)
+                            .strategyId(strategyId)
+                            .endDateTime(endDateTime)
+                            .todayUserRaffleCount(daySeq)
+                            .totalUserRaffleCount(totalSeq)
+                            .build());
+                });
+            }
+            List<Future<RaffleAwardEntity>> futures = threadPoolExecutor.invokeAll(tasks);
+
+            // 4. 收集结果（Future 顺序 == 提交顺序，避免共享集合的线程不安全）
+            List<RaffleAwardEntity> raffleAwardEntities = new ArrayList<>(10);
+            for (Future<RaffleAwardEntity> future : futures) {
+                try {
+                    raffleAwardEntities.add(future.get());
+                } catch (ExecutionException ee) {
+                    // 透出子任务里的业务异常码；其余异常整单失败走补偿
+                    if (ee.getCause() instanceof AppException) throw (AppException) ee.getCause();
+                    throw new RuntimeException(ee.getCause());
+                }
+            }
+
+            // 5. 组装10条中奖记录，批量落库（一次事务插10记录+10任务、参与订单标记used一次）
+            //    B1方案：参与订单仍1条（批次号=orderId）；中奖记录各派生唯一子orderId = 批次号_序号，
+            //    使"1条中奖记录 = 1个唯一orderId"重新成立，发奖回写/幂等按子号定位，即便中相同奖也互不覆盖。
+            Date awardTime = new Date();
+            List<UserAwardRecordEntity> userAwardRecords = new ArrayList<>(10);
+            for (int i = 0; i < raffleAwardEntities.size(); i++) {
+                RaffleAwardEntity raffleAwardEntity = raffleAwardEntities.get(i);
+                // 子orderId：批次号_两位序号（01~10）
+                String subOrderId = orderId + Constants.UNDERLINE + String.format("%02d", i + 1);
+                userAwardRecords.add(UserAwardRecordEntity.builder()
+                        .userId(userId)
+                        .activityId(activityId)
+                        .strategyId(strategyId)
+                        .orderId(subOrderId)
+                        .awardId(raffleAwardEntity.getAwardId())
+                        .awardTitle(raffleAwardEntity.getAwardTitle())
+                        .awardTime(awardTime)
+                        .awardState(AwardStateVO.create)
+                        .awardConfig(raffleAwardEntity.getAwardConfig())
+                        .build());
+            }
+            // 批次号用于标记参与订单used（参与订单存的是批次号，非子号）
+            awardService.saveUserAwardRecords(orderId, userAwardRecords);
+
+            // 6. 组装返回
+            List<ActivityDrawTenResponseDTO> data = new ArrayList<>(raffleAwardEntities.size());
+            for (int i = 0; i < raffleAwardEntities.size(); i++) {
+                RaffleAwardEntity raffleAwardEntity = raffleAwardEntities.get(i);
+                data.add(ActivityDrawTenResponseDTO.builder()
+                        .index(i + 1)
+                        .awardId(raffleAwardEntity.getAwardId())
+                        .awardTitle(raffleAwardEntity.getAwardTitle())
+                        .awardIndex(raffleAwardEntity.getSort())
+                        .build());
+            }
+            log.info("活动10连抽完成 userId:{} activityId:{} orderId:{}", userId, activityId, orderId);
+            return Response.<List<ActivityDrawTenResponseDTO>>builder()
+                    .code(ResponseCode.SUCCESS.getCode())
+                    .info(ResponseCode.SUCCESS.getInfo())
+                    .data(data)
+                    .build();
+        } catch (AppException e) {
+            log.error("活动10连抽失败 userId:{} activityId:{} {}", request.getUserId(), request.getActivityId(), e.getInfo());
+            return Response.<List<ActivityDrawTenResponseDTO>>builder()
+                    .code(e.getCode())
+                    .info(e.getInfo())
+                    .build();
+        } catch (Exception e) {
+            log.error("活动10连抽失败 userId:{} activityId:{}", request.getUserId(), request.getActivityId(), e);
+            return Response.<List<ActivityDrawTenResponseDTO>>builder()
+                    .code(ResponseCode.UN_ERROR.getCode())
+                    .info(ResponseCode.UN_ERROR.getInfo())
+                    .build();
+        }
+    }
+
 
     public Response<ActivityDrawResponseDTO> drawRateLimiterError(@RequestBody ActivityDrawRequestDTO request) {
         log.info("活动抽奖限流 userId:{} activityId:{}", request.getUserId(), request.getActivityId());

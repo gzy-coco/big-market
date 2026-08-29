@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -26,7 +27,7 @@ public class DefaultLogicChain extends AbstractLogicChain {
     private IStrategyDispatch strategyDispatch;
 
     @Override
-    public DefaultChainFactory.StrategyAwardVO logic(Long strategyId, String userId) {
+    public DefaultChainFactory.StrategyAwardVO logic(Long strategyId, String userId, Long totalUserRaffleCount, Date endDateTime) {
         Integer awardId = strategyDispatch.getRandomAwardId(strategyId);
         log.info("抽奖责任链-默认处理 userId: {} strategyId: {} ruleModel: {} awardId: {}", userId, strategyId, ruleModel(), awardId);
         return DefaultChainFactory.StrategyAwardVO.builder()

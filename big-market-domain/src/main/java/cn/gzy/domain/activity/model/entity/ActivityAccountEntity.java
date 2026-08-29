@@ -56,4 +56,9 @@ public class ActivityAccountEntity {
      */
     private Integer monthCountSurplus;
 
+    /**
+     * 真实已抽次数（累计）；只在落库兑现时 +N，供保底 rule_guaranteed 判断"抽到第几次"，不受"已扣未兑现"额度污染
+     */
+    private Integer usedCount;
+
 }

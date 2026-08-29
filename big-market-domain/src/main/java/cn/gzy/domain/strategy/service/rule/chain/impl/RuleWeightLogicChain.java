@@ -39,7 +39,7 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
      * 2. 解析数据格式；判断哪个范围符合用户的特定抽奖范围
      */
     @Override
-    public DefaultChainFactory.StrategyAwardVO logic(Long strategyId, String userId) {
+    public DefaultChainFactory.StrategyAwardVO logic(Long strategyId, String userId, Long totalUserRaffleCount, Date endDateTime) {
         log.info("抽奖责任链-权重开始 userId:{} strategyId:{} ruleModel:{}", userId, strategyId, ruleModel());
 
         String ruleValue = repository.queryStrategyRuleValue(strategyId, ruleModel());
@@ -47,7 +47,7 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
         Map<Integer, String> analyticalValueGroup = getAnalyticalValue(ruleValue);
         if (null == analyticalValueGroup || analyticalValueGroup.isEmpty()) {
             log.warn("抽奖责任链-权重告警【策略配置权重，但ruleValue未配置相应值】 userId:{} strategyId:{} ruleModel:{}", userId, strategyId, ruleModel());
-            return next().logic( strategyId,userId);
+            return next().logic( strategyId,userId,totalUserRaffleCount,endDateTime);
         }
 
         // 2. 用户分值
@@ -68,7 +68,7 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
 
         // 5. 过滤其他责任链
         log.info("抽奖责任链-权重放行 userId:{} strategyId:{} ruleModel:{}", userId, strategyId, ruleModel());
-        return next().logic( strategyId,userId);
+        return next().logic( strategyId,userId,totalUserRaffleCount,endDateTime);
     }
 
     @Override

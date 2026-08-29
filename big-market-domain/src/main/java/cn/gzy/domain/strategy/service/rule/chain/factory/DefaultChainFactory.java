@@ -97,6 +97,7 @@ public class DefaultChainFactory {
         RULE_DEFAULT("rule_default", "默认抽奖"),
         RULE_BLACKLIST("rule_blacklist", "黑名单抽奖"),
         RULE_WEIGHT("rule_weight", "权重规则"),
+        RULE_GUARANTEED("rule_guaranteed", "累计次数保底规则"),
         ;
 
         private final String code;

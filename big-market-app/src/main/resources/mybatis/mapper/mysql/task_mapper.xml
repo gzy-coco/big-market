@@ -21,6 +21,15 @@
                  )
     </insert>
 
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into task(
+            user_id, topic, message_id, message, state, create_time, update_time
+        ) values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.userId},#{item.topic},#{item.messageId},#{item.message},#{item.state},now(),now())
+        </foreach>
+    </insert>
+
     <update id="updateTaskSendMessageCompleted"
             parameterType="cn.gzy.infrastructure.dao.po.Task">
         update task

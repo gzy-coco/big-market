@@ -42,7 +42,7 @@ public class LogicChainTest {
     @Test
     public void test_LogicChain_rule_blacklist() {
         ILogicChain logicChain = defaultChainFactory.openLogicChain(100001L);
-        DefaultChainFactory.StrategyAwardVO strategyAwardVO = logicChain.logic(100001L,"user001" );
+        DefaultChainFactory.StrategyAwardVO strategyAwardVO = logicChain.logic(100001L,"user001", null, null );
         log.info("测试结果：{}", strategyAwardVO.getAwardId());
     }
 
@@ -52,14 +52,14 @@ public class LogicChainTest {
         ReflectionTestUtils.setField(ruleWeightLogicChain, "userScore", 4900L);
 
         ILogicChain logicChain = defaultChainFactory.openLogicChain(100001L);
-        DefaultChainFactory.StrategyAwardVO strategyAwardVO = logicChain.logic(100001L,"xiaofuge");
+        DefaultChainFactory.StrategyAwardVO strategyAwardVO = logicChain.logic(100001L,"xiaofuge", null, null);
         log.info("测试结果：{}", strategyAwardVO.getAwardId());
     }
 
     @Test
     public void test_LogicChain_rule_default() {
         ILogicChain logicChain = defaultChainFactory.openLogicChain(100003L);
-        DefaultChainFactory.StrategyAwardVO strategyAwardVO = logicChain.logic(100003L,"xiaofuge");
+        DefaultChainFactory.StrategyAwardVO strategyAwardVO = logicChain.logic(100003L,"xiaofuge", null, null);
         log.info("测试结果：{}", strategyAwardVO.getAwardId());
     }
 

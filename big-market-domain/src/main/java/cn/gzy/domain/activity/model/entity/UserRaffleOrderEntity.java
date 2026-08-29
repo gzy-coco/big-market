@@ -23,4 +23,11 @@ public class UserRaffleOrderEntity {
     private UserRaffleOrderStateVO orderState;
     /** 结束时间 */
     private Date endDateTime;
+    /** 抽奖类型；single-单抽、ten-十连抽 */
+    private String raffleType;
+
+    /** 扣减前当日已消耗次数；作为日计数器冷启动兜底种子，第 i 抽当日次数 = baseDayCount + i */
+    private int baseDayCount;
+    /** 扣减前累计已消耗次数；作为总计数器冷启动兜底种子，第 i 抽累计次数 = baseTotalCount + i */
+    private long baseTotalCount;
 }

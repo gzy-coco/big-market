@@ -4,6 +4,8 @@ import cn.bugstack.middleware.db.router.annotation.DBRouterStrategy;
 import cn.gzy.infrastructure.dao.po.UserAwardRecord;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
  * @description 用户中奖记录表
@@ -14,6 +16,9 @@ import org.apache.ibatis.annotations.Mapper;
 public interface IUserAwardRecordDao {
 
     void insert(UserAwardRecord userAwardRecord);
+
+    /** 批量写入中奖记录【10连抽】 */
+    void insertBatch(List<UserAwardRecord> userAwardRecords);
 
     int updateAwardRecordCompletedState(UserAwardRecord userAwardRecord);
 }

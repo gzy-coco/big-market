@@ -34,6 +34,8 @@ public class UserRaffleOrder {
     private Date orderTime;
     /** 订单状态；create-创建、used-已使用、cancel-已作废 */
     private String orderState;
+    /** 抽奖类型；single-单抽、ten-十连抽 */
+    private String raffleType;
     /** 创建时间 */
     private Date createTime;
    /** 更新时间 */

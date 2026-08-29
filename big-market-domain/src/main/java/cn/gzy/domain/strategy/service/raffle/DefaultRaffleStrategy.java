@@ -37,19 +37,19 @@ public class DefaultRaffleStrategy extends AbstractRaffleStrategy implements IRa
     }
 
     @Override
-    public DefaultChainFactory.StrategyAwardVO raffleLogicChain(String userId, Long strategyId) {
+    public DefaultChainFactory.StrategyAwardVO raffleLogicChain(String userId, Long strategyId, Long totalUserRaffleCount, Date endDateTime) {
         ILogicChain logicChain = defaultChainFactory.openLogicChain(strategyId);
 
-        return logicChain.logic(strategyId,userId);
+        return logicChain.logic(strategyId,userId,totalUserRaffleCount,endDateTime);
     }
 
     @Override
     public DefaultTreeFactory.StrategyAwardVO raffleLogicTree(String userId, Long strategyId, Integer awardId) {
-        return raffleLogicTree(userId,strategyId,awardId,null);
+        return raffleLogicTree(userId,strategyId,awardId,null,null);
     }
 
     @Override
-    public DefaultTreeFactory.StrategyAwardVO raffleLogicTree(String userId, Long strategyId, Integer awardId, Date endDateTime) {
+    public DefaultTreeFactory.StrategyAwardVO raffleLogicTree(String userId, Long strategyId, Integer awardId, Date endDateTime, Integer todayUserRaffleCount) {
         StrategyAwardRuleModelVO strategyAwardRuleModelVO = repository.queryStrategyAwardRuleModels(strategyId,awardId);
         if (null == strategyAwardRuleModelVO) {
             return DefaultTreeFactory.StrategyAwardVO.builder().awardId(awardId).build();
@@ -60,7 +60,7 @@ public class DefaultRaffleStrategy extends AbstractRaffleStrategy implements IRa
             throw new RuntimeException("存在抽奖策略配置的规则模型 Key，未在库表 rule_tree、rule_tree_node、rule_tree_line 配置对应的规则树信息 " + strategyAwardRuleModelVO.getRuleModels());
         }
         DecisionTreeEngine decisionTreeEngine = defaultTreeFactory.openLogicTree(ruleTreeVO);
-        return decisionTreeEngine.process(userId,strategyId,awardId,endDateTime);
+        return decisionTreeEngine.process(userId,strategyId,awardId,endDateTime,todayUserRaffleCount);
     }
 
     @Override

@@ -32,7 +32,7 @@ public class DecisionTreeEngine implements IDecisionTreeEngine {
     }
 
     @Override
-    public DefaultTreeFactory.StrategyAwardVO process(String userId, Long strategyId, Integer awardId, Date endDateTime) {
+    public DefaultTreeFactory.StrategyAwardVO process(String userId, Long strategyId, Integer awardId, Date endDateTime, Integer todayUserRaffleCount) {
 
         DefaultTreeFactory.StrategyAwardVO strategyAwardVO = null;
 
@@ -48,7 +48,7 @@ public class DecisionTreeEngine implements IDecisionTreeEngine {
             ILogicTreeNode logicTreeNode = logicTreeNodeGroup.get(nextNode);
             String ruleValue = ruleTreeNode.getRuleValue();
             // 节点执行业务流程
-            DefaultTreeFactory.TreeActionEntity logicEntity = logicTreeNode.logic(strategyId,userId,awardId,ruleValue,endDateTime);
+            DefaultTreeFactory.TreeActionEntity logicEntity = logicTreeNode.logic(strategyId,userId,awardId,ruleValue,endDateTime,todayUserRaffleCount);
             RuleLogicCheckTypeVO ruleLogicCheckTypeVO = logicEntity.getRuleLogicCheckType();
             strategyAwardVO = logicEntity.getStrategyAwardVO();
             log.info("决策树引擎【{}】treeId:{} node:{} code:{}", ruleTreeVO.getTreeName(), ruleTreeVO.getTreeId(), nextNode, ruleLogicCheckTypeVO.getCode());

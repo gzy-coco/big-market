@@ -9,13 +9,14 @@
         <result column="day" property="day"/>
         <result column="day_count" property="dayCount"/>
         <result column="day_count_surplus" property="dayCountSurplus"/>
+        <result column="used_count" property="usedCount"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
 
     <select id="queryActivityAccountDayByUserId" parameterType="cn.gzy.infrastructure.dao.po.RaffleActivityAccountDay" resultMap="dataMap">
-        select user_id, activity_id, day, day_count, day_count_surplus
+        select user_id, activity_id, day, day_count, day_count_surplus, used_count
         from raffle_activity_account_day
         where user_id = #{userId} and activity_id = #{activityId} and day = #{day}
     </select>
@@ -24,6 +25,7 @@
         from raffle_activity_account_day
         where user_id=#{userId} and activity_id=#{activityId} and day=#{day}
     </select>
+
 
     <update id="updateActivityAccountDaySubtractionQuota" parameterType="cn.gzy.infrastructure.dao.po.RaffleActivityAccountDay">
         update raffle_activity_account_day
@@ -44,4 +46,27 @@
             update_time = now()
         where user_id = #{userId} and activity_id = #{activityId} and day = #{day}
     </update>
+    <update id="updateActivityAccountDaySubtractionQuotaByCount">
+        update raffle_activity_account_day
+        set day_count_surplus = day_count_surplus - #{count}, update_time = now()
+        where user_id = #{userId} and activity_id = #{activityId} and day = #{day} and day_count_surplus >= #{count}
+    </update>
+
+    <update id="addUsedCount">
+        update raffle_activity_account_day
+        set used_count = used_count + #{count}, update_time = now()
+        where user_id = #{userId} and activity_id = #{activityId} and day = #{day}
+    </update>
+
+
+<!--    <select id="queryAccountDayCount" resultType="java.lang.Integer">-->
+<!--        select used_count-->
+<!--        from raffle_activity_account_day-->
+<!--        where user_id = #{userId} and activity_id = #{activityId} and day = #{day}-->
+<!--    </select>-->
+    <select id="queryAccountDayCount" resultMap="dataMap">
+        select  user_id, activity_id, day, day_count, day_count_surplus, used_count
+        from raffle_activity_account_day
+        where user_id = #{userId} and activity_id = #{activityId} and day = #{day}
+    </select>
 </mapper>

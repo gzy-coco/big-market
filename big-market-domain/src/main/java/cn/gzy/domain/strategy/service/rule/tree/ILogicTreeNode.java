@@ -12,5 +12,5 @@ import java.util.Date;
  */
 public interface ILogicTreeNode {
 
-    DefaultTreeFactory.TreeActionEntity  logic(Long strategyId, String userId, Integer awardId, String ruleValue, Date endDateTime);
+    DefaultTreeFactory.TreeActionEntity  logic(Long strategyId, String userId, Integer awardId, String ruleValue, Date endDateTime, Integer todayUserRaffleCount);
 }

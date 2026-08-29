@@ -64,6 +64,11 @@ public class RaffleActivityAccount {
     private Integer monthCountSurplus;
 
     /**
+     * 真实已抽次数（累计，落库兑现时+N）
+     */
+    private Integer usedCount;
+
+    /**
      * 创建时间
      */
     private Date createTime;

@@ -2,6 +2,8 @@ package cn.gzy.domain.activity.service.partake;
 
 import cn.gzy.domain.activity.model.aggregate.CreatePartakeOrderAggregate;
 import cn.gzy.domain.activity.model.entity.*;
+import cn.gzy.domain.activity.model.valobj.ActivityStateVO;
+import cn.gzy.domain.activity.model.valobj.RaffleTypeVO;
 import cn.gzy.domain.activity.model.valobj.UserRaffleOrderStateVO;
 import cn.gzy.domain.activity.repository.IActivityRepository;
 import cn.gzy.types.enums.ResponseCode;
@@ -31,18 +33,18 @@ public class RaffleActivityPartakeService extends AbstractRaffleActivityPartake{
     }
 
     @Override
-    protected CreatePartakeOrderAggregate doFilterAccount(String userId, Long activityId, Date currentDate) {
+    protected CreatePartakeOrderAggregate doFilterAccount(String userId, Long activityId, Date currentDate,RaffleTypeVO raffleType) {
         ActivityAccountEntity activityAccountEntity = activityRepository.queryActivityAccountByUserId(userId,activityId);
-
+        int count = raffleType.getCount();
         // 额度判断（只判断总剩余额度）
-        if(activityAccountEntity == null || activityAccountEntity.getTotalCountSurplus() <= 0){
+        if(activityAccountEntity == null || activityAccountEntity.getTotalCountSurplus() < count){
             throw new AppException(ResponseCode.ACCOUNT_QUOTA_ERROR.getCode(),ResponseCode.ACCOUNT_QUOTA_ERROR.getInfo());
         }
         String month = dateFormatMonth.format(currentDate);
         String day = dateFormatDay.format(currentDate);
 
         ActivityAccountMonthEntity activityAccountMonth = activityRepository.queryActivityAccountMonthByUserId(userId,activityId,month);
-        if(activityAccountMonth != null && activityAccountMonth.getMonthCountSurplus() <=0){
+        if(activityAccountMonth != null && activityAccountMonth.getMonthCountSurplus() < count){
             throw new AppException(ResponseCode.ACCOUNT_MONTH_QUOTA_ERROR.getCode(),ResponseCode.ACCOUNT_MONTH_QUOTA_ERROR.getInfo());
         }
         // 创建月账户额度；true = 存在月账户、false = 不存在月账户
@@ -58,7 +60,7 @@ public class RaffleActivityPartakeService extends AbstractRaffleActivityPartake{
 
         // 查询日账户额度
         ActivityAccountDayEntity activityAccountDayEntity = activityRepository.queryActivityAccountDayByUserId(userId, activityId, day);
-        if (null != activityAccountDayEntity && activityAccountDayEntity.getDayCountSurplus() <= 0) {
+        if (null != activityAccountDayEntity && activityAccountDayEntity.getDayCountSurplus() < count) {
             throw new AppException(ResponseCode.ACCOUNT_DAY_QUOTA_ERROR.getCode(), ResponseCode.ACCOUNT_DAY_QUOTA_ERROR.getInfo());
         }
 
@@ -71,10 +73,12 @@ public class RaffleActivityPartakeService extends AbstractRaffleActivityPartake{
             activityAccountDayEntity.setDay(day);
             activityAccountDayEntity.setDayCount(activityAccountEntity.getDayCount());
             activityAccountDayEntity.setDayCountSurplus(activityAccountEntity.getDayCount());
+            activityAccountDayEntity.setUsedCount(0);
         }
 
         // 构建对象
         CreatePartakeOrderAggregate createPartakeOrderAggregate = new CreatePartakeOrderAggregate();
+        createPartakeOrderAggregate.setCount(count);
         createPartakeOrderAggregate.setUserId(userId);
         createPartakeOrderAggregate.setActivityId(activityId);
         createPartakeOrderAggregate.setActivityAccountEntity(activityAccountEntity);
@@ -87,7 +91,7 @@ public class RaffleActivityPartakeService extends AbstractRaffleActivityPartake{
     }
 
     @Override
-    protected UserRaffleOrderEntity buildUserRaffleOrder(String userId, Long activityId, Date currentDate) {
+    protected UserRaffleOrderEntity buildUserRaffleOrder(String userId, Long activityId, Date currentDate,RaffleTypeVO raffleType) {
         ActivityEntity activityEntity = activityRepository.queryRaffleActivityByActivityId(activityId);
         // 构建订单
         UserRaffleOrderEntity userRaffleOrderEntity = new UserRaffleOrderEntity();
@@ -99,7 +103,7 @@ public class RaffleActivityPartakeService extends AbstractRaffleActivityPartake{
         userRaffleOrderEntity.setOrderId(RandomStringUtils.randomNumeric(12));
         userRaffleOrderEntity.setOrderState(UserRaffleOrderStateVO.create);
         userRaffleOrderEntity.setEndDateTime(activityEntity.getEndDateTime());
+        userRaffleOrderEntity.setRaffleType(raffleType.getCode());
         return userRaffleOrderEntity;
-
     }
 }

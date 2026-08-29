@@ -23,6 +23,15 @@
                      #{userId},#{activityId},#{strategyId},#{orderId},#{awardId},#{awardTitle},#{awardTime},#{awardState},now(),now()
                  )
     </insert>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into user_award_record(
+            user_id, activity_id, strategy_id, order_id, award_id, award_title, award_time, award_state, create_time, update_time
+        ) values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.userId},#{item.activityId},#{item.strategyId},#{item.orderId},#{item.awardId},#{item.awardTitle},#{item.awardTime},#{item.awardState},now(),now())
+        </foreach>
+    </insert>
     <update id="updateAwardRecordCompletedState">
         update user_award_record set award_state = 'completed'
         where user_id=#{userId} and order_id=#{orderId} and award_state='create'

@@ -27,5 +27,7 @@ public class ActivityAccountDayEntity {
     private Integer dayCount;
     /** 日次数-剩余 */
     private Integer dayCountSurplus;
+    /** 真实已抽次数（当日）；只在落库兑现时 +N，供 rule_lock 判断"当日抽到第几次"，靠 day 天然跨天隔离 */
+    private Integer usedCount;
 
 }

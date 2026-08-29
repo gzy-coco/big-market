@@ -33,4 +33,9 @@ public class Constants {
 
     }
 
+    // 抽奖类型的常量
+    public static String SINGLE_RAFFLE = "single";
+    public static String TEN_RAFFLE="ten";
+
+
 }

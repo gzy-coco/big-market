@@ -3,7 +3,6 @@ package cn.gzy.domain.strategy.service.rule.chain.impl;
 import cn.gzy.domain.strategy.repository.IStrategyRepository;
 import cn.gzy.domain.strategy.service.rule.chain.AbstractLogicChain;
 import cn.gzy.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
-import cn.gzy.domain.strategy.service.rule.tree.factory.engine.impl.DecisionTreeEngine;
 import cn.gzy.types.common.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -11,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -25,7 +25,7 @@ public class BackListLogicChain extends AbstractLogicChain {
     @Resource
     private IStrategyRepository repository;
     @Override
-    public DefaultChainFactory.StrategyAwardVO logic(Long strategyId, String userId) {
+    public DefaultChainFactory.StrategyAwardVO logic(Long strategyId, String userId, Long totalUserRaffleCount, Date endDateTime) {
         log.info("抽奖责任链-黑名单开始 userId: {} strategyId: {} ruleModel: {}", userId, strategyId, ruleModel());
 
         // 查询规则值配置
@@ -46,7 +46,7 @@ public class BackListLogicChain extends AbstractLogicChain {
         }
         // 过滤其他责任链
         log.info("抽奖责任链-黑名单放行 userId: {} strategyId: {} ruleModel: {}", userId, strategyId, ruleModel());
-        return next().logic(strategyId,userId);
+        return next().logic(strategyId,userId,totalUserRaffleCount,endDateTime);
     }
 
     @Override

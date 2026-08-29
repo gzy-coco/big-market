@@ -11,23 +11,24 @@
         <result column="order_id" property="orderId"/>
         <result column="order_time" property="orderTime"/>
         <result column="order_state" property="orderState"/>
+        <result column="raffle_type" property="raffleType"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <insert id="insert" parameterType="cn.gzy.infrastructure.dao.po.UserRaffleOrder">
         insert into user_raffle_order(
-            user_id, activity_id, activity_name, strategy_id, order_id, order_time, order_state, create_time, update_time
+            user_id, activity_id, activity_name, strategy_id, order_id, order_time, order_state, raffle_type, create_time, update_time
         )
         values(
-                  #{userId}, #{activityId}, #{activityName}, #{strategyId}, #{orderId}, #{orderTime}, #{orderState}, now(), now()
+                  #{userId}, #{activityId}, #{activityName}, #{strategyId}, #{orderId}, #{orderTime}, #{orderState}, #{raffleType}, now(), now()
               )
     </insert>
 
     <select id="queryNoUsedRaffleOrder" parameterType="cn.gzy.infrastructure.dao.po.UserRaffleOrder" resultMap="dataMap">
         select user_id, activity_id, activity_name, strategy_id, order_id, order_time, order_state
         from user_raffle_order
-        where user_id = #{userId} and activity_id = #{activityId} and order_state = 'create'
+        where user_id = #{userId} and activity_id = #{activityId} and order_state = 'create' and raffle_type = #{raffleType}
         order by create_time desc
         limit 1
     </select>
